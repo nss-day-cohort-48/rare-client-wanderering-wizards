@@ -19,7 +19,7 @@ export const Login = () => {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                username: email.current.value,
+                email: email.current.value,
                 password: password.current.value
             })
         })
@@ -43,7 +43,7 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Rare Publishing</h1>
+                    <h1>Rarerererer Publishing</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
