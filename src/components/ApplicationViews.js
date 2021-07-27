@@ -3,6 +3,8 @@ import { Route } from "react-router-dom"
 import { CategoryProvider } from "./category/CategoryProvider"
 import { CategoryList } from "./category/CategoryList"
 import { CategoryForm } from "./category/CategoryForm"
+import { PostProvider } from "./posts/PostProvider"
+import { MyPostList } from "./posts/MyPostList"
 
 export const ApplicationViews = () => {
     return <>
@@ -11,11 +13,16 @@ export const ApplicationViews = () => {
             lineHeight: "1.75rem"
         }}>
         </main>
+        <PostProvider>
         <CategoryProvider>
             <Route exact path="/categories">
                 <CategoryList />
                 <CategoryForm/>
             </Route>
+            <Route exact path="/myposts">
+                <MyPostList />
+            </Route>
         </CategoryProvider>
+        </PostProvider>
     </>
 }
