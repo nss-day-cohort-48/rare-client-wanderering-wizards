@@ -1,0 +1,6 @@
+.flex {
+    display: flex;
+    border: 2px solid goldenrod;
+    margin: 5px;
+    flex-flow: wrap column
+}

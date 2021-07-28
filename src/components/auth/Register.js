@@ -21,7 +21,7 @@ export const Register = (props) => {
         last_name: lastName.current.value,
         email: email.current.value,
         password: password.current.value,
-        created_on: new Date().toISOString().slice(0, 10),
+        created_on: new Date().toLocaleDateString(),
         active: 1,
       };
 
