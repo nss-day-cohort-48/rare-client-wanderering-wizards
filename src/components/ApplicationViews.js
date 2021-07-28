@@ -8,7 +8,6 @@ import { MyPostList } from "./posts/MyPostList"
 import { PostDetails } from "./posts/PostDetails"
 import { PostList } from "./posts/PostList"
 
-
 export const ApplicationViews = () => {
     return <>
         <main style={{
@@ -27,7 +26,7 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/posts/:postId(\d+)">
                 <PostDetails />
-
+            </Route>
             <Route exact path="/posts">
                 <PostList />
             </Route>
