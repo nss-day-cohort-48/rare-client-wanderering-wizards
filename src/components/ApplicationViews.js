@@ -6,6 +6,7 @@ import { CategoryForm } from "./category/CategoryForm"
 import { PostProvider } from "./posts/PostProvider"
 import { MyPostList } from "./posts/MyPostList"
 import { PostList } from "./posts/PostList"
+import { PostForm } from "./posts/PostForm"
 
 export const ApplicationViews = () => {
     return <>
@@ -25,6 +26,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/posts">
                 <PostList />
+            </Route>
+            <Route exact path="/posts/create">
+                <PostForm />
             </Route>
         </CategoryProvider>
         </PostProvider>
