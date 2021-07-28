@@ -1,26 +1,26 @@
 import React, { useContext, useRef, useEffect, useState, useParams } from "react"
-import { CategoryContext } from "./CategoryProvider"
+import { TagContext } from "./TagProvider"
 import { useHistory } from "react-router-dom"
 
-export const CategoryForm = () => {
-    const {addCategory} = useContext(CategoryContext)
+export const TagForm = () => {
+    const {addTag} = useContext(TagContext)
 
-    const [ category, setCategory ] = useState({})
+    const [ tag, setTag ] = useState({})
     const [isLoading, setIsLoading] = useState(true);
 	const history = useHistory();
 
     const handleControlledInputChange = (event) => {
-        const newCategory = { ...category }
-        newCategory[event.target.id] = event.target.value
-        setCategory(newCategory)
+        const newTag = { ...tag }
+        newTag[event.target.id] = event.target.value
+        setTag(newTag)
     }
 
-    const handleSaveCategory = () => {
+    const handleSaveTag = () => {
         setIsLoading(true)
-        addCategory({
-            label: category.label
+        addTag({
+            label: tag.label
         })
-        .then(() => history.push("/categories"))
+        .then(() => history.push("/tags"))
         
     }
 
@@ -30,7 +30,7 @@ export const CategoryForm = () => {
 
     return (
         <form>
-            <h2>Create a new category</h2>
+            <h2>Create a new tag</h2>
             <fieldset>
                 <div>
                     <input type="text" id="label" name="label" required autoFocus placeholder="add text"
@@ -41,9 +41,9 @@ export const CategoryForm = () => {
                 <button disabled={isLoading}
                 onClick={event => {
                     event.preventDefault()
-                    handleSaveCategory()
-                    setCategory("")
-                }}>Create Category</button>
+                    handleSaveTag()
+                    setTag({})
+                }}>Create Tag</button>
             </div>
         </form>
     )

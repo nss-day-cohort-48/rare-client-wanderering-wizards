@@ -1,7 +1,7 @@
 import React, { useContext, useEffect} from "react"
 import { CategoryContext } from "./CategoryProvider"
 
-export const CategoryList = props => {
+export const CategoryList = () => {
     const {categories, getCategories} = useContext(CategoryContext)
 
     useEffect(() => {
