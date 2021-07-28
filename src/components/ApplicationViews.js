@@ -7,6 +7,9 @@ import { PostProvider } from "./posts/PostProvider"
 import { MyPostList } from "./posts/MyPostList"
 import { PostDetails } from "./posts/PostDetails"
 import { PostList } from "./posts/PostList"
+import { TagProvider } from "./tags/TagProvider"
+import { TagList } from "./tags/TagList"
+import { TagForm } from "./tags/TagForm"
 
 
 export const ApplicationViews = () => {
@@ -17,21 +20,28 @@ export const ApplicationViews = () => {
         }}>
         </main>
         <PostProvider>
-        <CategoryProvider>
-            <Route exact path="/categories">
-                <CategoryList />
-                <CategoryForm/>
-            </Route>
-            <Route exact path="/myposts">
-                <MyPostList />
-            </Route>
-            <Route exact path="/posts/:postId(\d+)">
-                <PostDetails />
+            <CategoryProvider>
+                <TagProvider>
+                    <Route exact path="/categories">
+                        <CategoryList />
+                        <CategoryForm/>
+                    </Route>
+                    <Route exact path="/myposts">
+                        <MyPostList />
+                    </Route>
+                    <Route exact path="/posts/:postId(\d+)">
+                        <PostDetails />
+                    </Route>
 
-            <Route exact path="/posts">
-                <PostList />
-            </Route>
-        </CategoryProvider>
+                    <Route exact path="/posts">
+                        <PostList />
+                    </Route>
+                    <Route exact path="/tags">
+                        <TagList />
+                        <TagForm/>
+                    </Route>
+                </TagProvider>
+            </CategoryProvider>
         </PostProvider>
     </>
 }
