@@ -4,6 +4,8 @@ import { CategoryContext } from "./CategoryProvider"
 export const CategoryList = () => {
     const {categories, getCategories} = useContext(CategoryContext)
 
+    const alphabeticalCategories = categories.sort((category1, category2) => category1.label.localeCompare(category2.label))
+
     useEffect(() => {
         getCategories()
     }, [])
@@ -12,7 +14,7 @@ export const CategoryList = () => {
         <div>
             <h1>Categories</h1>
             {
-                categories.map(category => {
+                alphabeticalCategories.map(category => {
                     return (
                         <div>{category.label}</div>
                     )
