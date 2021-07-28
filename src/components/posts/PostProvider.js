@@ -6,11 +6,18 @@ export const PostContext = createContext()
 // This component establishes what data can be used.
 export const PostProvider = (props) => {
     const [posts, setPosts] = useState([])
+    const [post, setPost] = useState({})
 
     const getPostsByUserId = (userId) => {
         return fetch(`http://localhost:8088/posts?user=${userId}`)
         .then(res => res.json())
         .then(setPosts)
+    }
+    
+    const getPostsDetails = (postId) => {
+        return fetch(`http://localhost:8088/posts/${postId}`)
+        .then(res => res.json())
+        .then(setPost)
     }
 
     const getPosts = () => {
@@ -29,12 +36,11 @@ export const PostProvider = (props) => {
         })
         .then(getPosts)
     }
-
+    
     return (
         <PostContext.Provider value={{
-            posts, setPosts, getPostsByUserId, getPosts, createPost
+            posts, setPosts, post, setPost, getPostsByUserId, getPostsDetails
         }}>
             {props.children}
         </PostContext.Provider>
     )
-}
