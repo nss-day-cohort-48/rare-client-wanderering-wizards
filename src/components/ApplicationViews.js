@@ -11,6 +11,7 @@ import { PostForm } from "./posts/PostForm";
 import { TagProvider } from "./tags/TagProvider";
 import { TagList } from "./tags/TagList";
 import { TagForm } from "./tags/TagForm";
+import { PostEdit } from "./posts/PostEdit";
 
 export const ApplicationViews = () => {
   return (
@@ -39,6 +40,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/posts">
               <PostList />
+            </Route>
+            <Route exact path="/posts/edit/:postId(\d+)">
+              <PostEdit />
             </Route>
             <Route exact path="/tags">
               <TagList />
