@@ -2,13 +2,17 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { PostContext } from "./PostProvider";
 import { CategoryContext } from "../category/CategoryProvider";
+import { TagContext } from "../tags/TagProvider";
 
 export const PostForm = () => {
     const { createPost } = useContext(PostContext)
     const { categories, getCategories} = useContext(CategoryContext)
+    const {tags, getTags} = useContext(TagContext)
 
     const [post, setPosts] = useState({})
     const [isLoading, setIsLoading] = useState(false);
+
+    const [postTags, setPostTags] = useState([])
 
 	const history = useHistory();
 
@@ -20,6 +24,7 @@ export const PostForm = () => {
 
     useEffect(() => {
         getCategories()
+        getTags()
     }, [])
 
     useEffect(() => {
@@ -54,7 +59,8 @@ export const PostForm = () => {
             publication_date: new Date().toLocaleDateString(),
             image_url: post.image_url,
             content: post.content,
-            approved: parseInt(1)
+            approved: parseInt(1),
+            tags: postTags
         })
         .then(() => history.push("/myposts"))
         }  
@@ -99,6 +105,26 @@ export const PostForm = () => {
           <div className="center posts  blueText">
             <label htmlFor="content">Content:</label>
             <textarea value={post.content} type="content" id="content" name="content" className="center  post blueText" onChange={handleControlledInputChange}/>
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="center posts  blueText">
+              {tags.map(tag => (
+                <>
+                <input type="checkbox" key={tag.id} value={tag.id} onClick={event => {
+                  const copyPostTags = [...postTags]
+                  const idPosition = copyPostTags.indexOf(tag)
+                  if (idPosition >= 0) {
+                    copyPostTags.splice(idPosition, 1)
+                  }
+                  else {
+                    copyPostTags.push(tag)
+                  }
+                  setPostTags(copyPostTags)
+                }}/>
+                <div>{tag.label}</div>
+                </>
+              ))}
           </div>
         </fieldset>
         
