@@ -28,9 +28,20 @@ export const TagProvider = (props) => {
         }).then(getTags)
     }
 
+    const updateTag = (tagObj) => {
+        return fetch(`http://localhost:8088/tags/${tagObj.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(tagObj)
+        })
+          .then(getTags)
+      }
+
     return (
         <TagContext.Provider value={{
-            tags, addTag, getTags, deleteTag
+            tags, addTag, getTags, deleteTag, updateTag
         }}>
             {props.children}
         </TagContext.Provider>

@@ -6,7 +6,7 @@ import { CategoryContext } from "../category/CategoryProvider";
 export const PostForm = () => {
     const { createPost } = useContext(PostContext)
     const { categories, getCategories} = useContext(CategoryContext)
-
+    
     const [post, setPosts] = useState({})
     const [isLoading, setIsLoading] = useState(false);
 
