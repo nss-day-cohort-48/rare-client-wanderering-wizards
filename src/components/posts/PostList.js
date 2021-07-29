@@ -1,6 +1,7 @@
 import React, { useContext, useEffect} from "react"
 import { PostContext } from "./PostProvider"
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+
 
 
 export const PostList = props => {
@@ -48,7 +49,7 @@ export const PostList = props => {
         Create Post?
       </button>
         <div>
-            <h1>My Posts</h1>
+            <h1>Posts</h1>
             {
                 filteredPostsByDate.map(post => {
                     return (
