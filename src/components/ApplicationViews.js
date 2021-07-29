@@ -6,6 +6,7 @@ import { CategoryForm } from "./category/CategoryForm";
 import { PostProvider } from "./posts/PostProvider";
 import { MyPostList } from "./posts/MyPostList";
 import { PostDetails } from "./posts/PostDetails";
+import { PostEdit } from "./posts/PostEdit";
 import { PostList } from "./posts/PostList";
 import { PostForm } from "./posts/PostForm";
 import { TagProvider } from "./tags/TagProvider";
@@ -55,6 +56,9 @@ export const ApplicationViews = () => {
 							<Route exact path="/posts">
 								<PostList />
 							</Route>
+                            <Route exact path="/posts/edit/:postId(\d+)">
+                                <PostEdit />
+                            </Route>
 							<Route exact path="/tags">
 								<TagList />
 								<TagForm />
