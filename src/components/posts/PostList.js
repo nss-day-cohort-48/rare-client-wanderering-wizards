@@ -1,6 +1,6 @@
 import React, { useContext, useEffect} from "react"
 import { PostContext } from "./PostProvider"
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 export const PostList = props => {
@@ -31,7 +31,7 @@ export const PostList = props => {
                     return (
                         <>
                         <article className="flex">
-                        <div>Title: {post.title}</div>
+                        <Link to={`/posts/${post.id}`}>{post.title}</Link>
                         <div>Author: {post.user.first_name} {post.user.last_name}</div>
                         <div>Category: {post.category.label}</div>
                         </article>

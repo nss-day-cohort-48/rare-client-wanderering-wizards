@@ -26,7 +26,7 @@ export const TagForm = () => {
 
     useEffect(() => {
         setIsLoading(false)
-    }, [])
+    }, [tag])
 
     return (
         <form>

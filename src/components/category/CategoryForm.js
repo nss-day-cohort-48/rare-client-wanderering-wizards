@@ -26,7 +26,7 @@ export const CategoryForm = () => {
 
     useEffect(() => {
         setIsLoading(false)
-    }, [])
+    }, [category])
 
     return (
         <form>
