@@ -16,6 +16,29 @@ export const PostList = props => {
         getPosts()
     }, [])
 
+    const editPostButton = (user_id, post_id) => {
+        if (user_id == localStorage.getItem("rare_user_id")) {
+            return <button
+            className="post blueText"
+            id={`post--${post_id}`}
+            onClick={(event) => {
+              event.preventDefault();
+              handleUpdatePost(post_id);
+            }}
+          >
+            Edit Post
+          </button>
+          }
+          else {
+            return 
+          }
+        }
+
+        const handleUpdatePost = (post_id) => {
+            history.push(`/posts/edit/${post_id}`);
+          };
+
+
     return (
         <>
         <button
@@ -34,6 +57,7 @@ export const PostList = props => {
                         <div>Title: {post.title}</div>
                         <div>Author: {post.user.first_name} {post.user.last_name}</div>
                         <div>Category: {post.category.label}</div>
+                        {editPostButton(post.user_id, post.id)}
                         </article>
                         </>
                     )
