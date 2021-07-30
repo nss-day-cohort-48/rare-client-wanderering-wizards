@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 
 
+
 export const PostList = props => {
     const {posts, getPosts} = useContext(PostContext)
     const approvedPosts = posts.filter(post => post.approved > 0)
