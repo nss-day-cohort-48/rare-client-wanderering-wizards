@@ -43,6 +43,7 @@ export const CommentForm = () => {
             post_id: parseInt(postId),
             author_id: parseInt(userId),
             content: comments.content,
+            comment_date: new Date().toLocaleDateString()
         })
         .then(() => history.push(`/posts/${postId}`))
         }  
@@ -52,7 +53,7 @@ export const CommentForm = () => {
         }
       }
 
-// TODO change this to fit comment form object
+
     return (
     <>
         <h1>New Comment</h1>
