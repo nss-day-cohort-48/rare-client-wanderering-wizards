@@ -74,6 +74,10 @@ export const CategoryList = () => {
 
     return (
         <div>
+            <button onClick={() => {
+                history.push("/categories/create")
+            }
+            }>Create a category?</button>
             <h1>Categories</h1>
             {deleteButtonPressed ? deletePopup() : ""}
             {updateButtonPressed ? updatePopup() : ""}
