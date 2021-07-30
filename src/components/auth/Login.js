@@ -1,8 +1,8 @@
 import React, { useRef } from "react"
 import { Link, useHistory } from "react-router-dom"
 import "./Auth.css"
-
-
+import "../../components/Rare.css"
+import rareLogo from "../../images/rarerLogo.png"
 export const Login = () => {
     const email = useRef()
     const password = useRef()
@@ -43,14 +43,15 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Rarerererer Publishing</h1>
-                    <h2>Please sign in</h2>
+                    {/* <h1 className="rareLogo">Rarerererer</h1> */}
+                    <div className="rareLogoImage">
+                    <img src={rareLogo} />
+                    </div>
+                    
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email" id="email" className="form-control" placeholder="Email address" required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
                     </fieldset>
                     <fieldset style={{
@@ -61,7 +62,7 @@ export const Login = () => {
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                <Link to="/register">Don't have an account yet? Click here to sign up!</Link>
             </section>
         </main>
     )

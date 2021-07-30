@@ -1,14 +1,60 @@
-.navbar {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* .navbar {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    text-align: center;
+    justify-content: space-evenly;
 }
 
 .navbar__logo {
-    max-height: 6rem;
+    max-height: 3.5rem;
+} */
+
+ .navbar {
+     display: flex;
+     justify-content: space-evenly;
+ }
+
+ .navbar__logo {
+    max-height: 3.5rem;
+    cursor: pointer;
+
+} 
+
+.navbar__item {
+    align-self: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    letter-spacing: 3px;
+}
+
+.navbar__text {
+    border: none;
+    font-family: "Playfair Display";
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    /* padding: 0.35rem 1.5rem; */
+    box-shadow: 0.25rem 0.25rem 0.7rem #9c9c9c;
+    display: inline-block;
+    margin: 0.5rem 0.75rem;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.navbar__text:hover {
+    background: #cacaca;
+	color: rgb(255, 255, 255);
 }

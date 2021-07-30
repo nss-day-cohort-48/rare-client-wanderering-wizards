@@ -33,7 +33,8 @@ export const ApplicationViews = () => {
 						fontSize: 46,
 					}}
 				>
-					WELCOME TO RARE
+					💎 WELCOME TO RARE
+                    💎
 				</div>
 			</Route>
 			<PostProvider>

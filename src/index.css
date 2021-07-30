@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap');
+
 /*Typography
 --------------------------------------------------------------*/
 
@@ -11,6 +13,7 @@ body, button, input, select, textarea {
     margin: 0;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "Patua One", serif;
     letter-spacing: 2px;
@@ -21,10 +24,19 @@ code {
     monospace;
 }
 
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    list-style: none;
+}
 .fakeLink {
     color: -webkit-link;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
     background: none!important;
     border: none;
     cursor: pointer;
@@ -92,16 +104,22 @@ code {
 
 /* Button 1 */
 .btn-1 {
-	background: #3498db;
-	color: #fff;
+	background: #424242;
+	color: rgb(255, 255, 255);
+    background: #424242;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .btn-1:hover {
-	background: #2980b9;
+	background: #ffffff;
+    color: #424242;
 }
 
 .btn-1:active {
-	background: #2980b9;
+	background: #ffffff;
 	top: 2px;
 }
 
@@ -197,6 +215,6 @@ code {
 }
 
 .icon-send:before {
-	content: "🔓";
+	content: "💎";
 }
 
