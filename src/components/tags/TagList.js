@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory } from "react-router-dom"
 import { TagContext } from "./TagProvider"
+import gear from "../../images/gear.png"
+import trash from "../../images/trash.png"
+import "../../components/tags/Tags.css"
 
 export const TagList = () => {
     const {tags, getTags, deleteTag, updateTag} = useContext(TagContext)
@@ -25,7 +28,9 @@ export const TagList = () => {
             <button onClick={() => {     
                 setSelectedTag(tagId)
                 setDeleteButtonPressed(true)
-            }}>DELETE</button>
+            }}>
+                <img className={"icon"} src={trash} alt="" />
+            </button>
         )
     }
     
@@ -34,31 +39,38 @@ export const TagList = () => {
             <button onClick={() => {     
                 setSelectedTag(tagObj)
                 setUpdateButtonPressed(true)
-            }}>UPDATE</button>
+            }}>
+                <img className={"icon"} src={gear} alt="" />
+            </button>
         )
     }
 
     const deletePopup = () => {
         return (
-            <div>
-                <div>Are you sure you want to delete this tag?</div>
-                <button onClick={
+            <div className={"controls_wrapper"}>
+                <div className={"controls_text controls_item"}>Are you sure you want to delete this tag?</div>
+                <div className={"controls_item"}>
+                <button className={"controls_button"} onClick={
                     ()=>{
                         deleteTag(selectedTag).then(()=>{history.push("/tags")})
                         setDeleteButtonPressed(false)
-                    }}>Ok</button><button onClick={
+                    }}>Ok</button><button className={"controls_button"} onClick={
                         ()=>{setDeleteButtonPressed(false)}
                         }>Cancel</button>
+                </div>
             </div>
         )
     }
 
     const updatePopup = () => {
         return (
-            <div>
-                <div>Edit this tag</div>
-                <input onKeyUp={HandleUserInput} defaultValue={selectedTag.label}></input>
-                <button onClick={
+            <div className={"controls_wrapper"}>
+                <div className={"controls_text controls_item"}>Edit this tag</div>
+                <div className={"controls_item"}>
+                    <input onKeyUp={HandleUserInput} defaultValue={selectedTag.label}></input>
+                </div>
+                <div className={"controls_item"}>
+                    <button className={"controls_button"} onClick={
                     ()=>{
                         const updated_tag = {
                             id: selectedTag.id,
@@ -66,9 +78,10 @@ export const TagList = () => {
                         }
                         updateTag(updated_tag).then(()=>{history.push("/tags")})
                         setUpdateButtonPressed(false)
-                    }}>Ok</button><button onClick={
+                    }}>Ok</button><button className={"controls_button"} onClick={
                         ()=>{setUpdateButtonPressed(false)}
                         }>Cancel</button>
+                </div>      
             </div>
         )
     }
