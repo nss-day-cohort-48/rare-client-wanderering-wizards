@@ -3,10 +3,15 @@
 }
 
 fieldset {
-    min-width: 0;
-    padding: 1rem 0;
-    margin: 0;
+    margin-inline-end: 0;
     border: 0;
+}
+
+.form--login--wrap {
+    display: flex;
+    margin: auto;
+    max-width: 900px;
+    flex-wrap: wrap;
 }
 
 .form--login {
@@ -17,7 +22,8 @@ fieldset {
 
 .form--login > fieldset > input[type="email"],
 .form--login > fieldset > input[type="password"] {
-    width: 25em;
+    margin: auto;
+    max-width: 300px;
 }
 
 .label--login {
@@ -42,6 +48,43 @@ fieldset {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.form-control-firstName, .form-control-lastName, .form-control-username, .form-control-profileImage {
+    display: block;
+    width: 400px;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: auto;
+    max-width: 300px;
+}
+
+.form-control-bio {
+    display: block;
+    width: 94%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: auto;
+    max-width: 300px;
+    resize: vertical;
+}
 .container--login {
     text-align: center;
 }
@@ -49,8 +92,6 @@ fieldset {
 .form--login {
     z-index: 1;
     min-height: 25rem;
-    min-width: 45rem;
-    padding: 0 5rem;
     background-color: hsla(0,0%,100%,0.75);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
@@ -64,4 +105,26 @@ fieldset {
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
+}
+
+.link--register {
+    font-size: 15px;
+}
+
+.signInHead {
+    text-align: center;
+}
+.rareLogoImage {
+    margin-top: 5rem;    
+    margin-bottom: 7rem;
+    text-align: center;
+}
+
+.profileImageDefault {
+    width: 94%;
+    text-align: center;
+}
+.profileImageDiv {
+    display: flex;
+    justify-content: center;
 }

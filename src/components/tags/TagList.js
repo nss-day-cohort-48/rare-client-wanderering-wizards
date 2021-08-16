@@ -88,6 +88,10 @@ export const TagList = () => {
 
     return (
         <div>
+            <button onClick={() => {
+                history.push("/tags/create")
+            }
+            }>Create a tag?</button>
             <h1>tags</h1>
             {deleteButtonPressed ? deletePopup() : ""}
             {updateButtonPressed ? updatePopup() : ""}

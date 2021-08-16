@@ -7,10 +7,12 @@ import { useHistory, Link } from 'react-router-dom';
 
 export const PostList = props => {
     const {posts, getPosts} = useContext(PostContext)
+
     const approvedPosts = posts.filter(post => post.approved > 0)
     const sortedPosts = approvedPosts.sort((post1, post2) => (Date.parse(post2.publication_date) - Date.parse(post1.publication_date)))
     const now = new Date()
     const filteredPostsByDate = sortedPosts.filter(post => Date.parse(post.publication_date) < now)
+    
     const history = useHistory();
 
 
