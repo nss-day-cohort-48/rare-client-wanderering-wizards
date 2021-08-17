@@ -3,8 +3,9 @@ import { Link, useHistory } from "react-router-dom"
 import "./Auth.css"
 import "../../components/Rare.css"
 import rareLogo from "../../images/rarerLogo.png"
+
 export const Login = () => {
-    const email = useRef()
+    const username = useRef()
     const password = useRef()
     const invalidDialog = useRef()
     const history = useHistory()
@@ -12,14 +13,14 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch("http://127.0.0.1:8088/login", {
+        return fetch("http://127.0.0.1:8000/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                email: email.current.value,
+                username: username.current.value,
                 password: password.current.value
             })
         })
@@ -38,7 +39,7 @@ export const Login = () => {
     return (
         <main className="container--login">
             <dialog className="dialog dialog--auth" ref={invalidDialog}>
-                <div>Email or password was not valid.</div>
+                <div>Username or password was not valid.</div>
                 <button className="button--close" onClick={e => invalidDialog.current.close()}>Close</button>
             </dialog>
             <section>
@@ -49,7 +50,7 @@ export const Login = () => {
                     </div>
                     
                     <fieldset>
-                        <input ref={email} type="email" id="email" className="form-control" placeholder="Email address" required autoFocus />
+                        <input ref={username} type="text" id="username" className="form-control" placeholder="Username" required autoFocus />
                     </fieldset>
                     <fieldset>
                         <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />

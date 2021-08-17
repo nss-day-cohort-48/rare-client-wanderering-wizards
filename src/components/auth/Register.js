@@ -26,11 +26,11 @@ export const Register = (props) => {
 				password: password.current.value,
 				profile_image_url: profile_image_url.current.value,
 				bio: bio.current.value,
-				created_on: new Date().toLocaleDateString(),
+				created_on: new Date().toISOString().slice(0, 10),
 				active: 1,
 			};
 
-			return fetch("http://127.0.0.1:8088/register", {
+			return fetch("http://127.0.0.1:8000/register", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
