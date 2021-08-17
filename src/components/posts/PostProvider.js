@@ -10,28 +10,26 @@ export const PostProvider = (props) => {
 
 	const getPostsByUserId = (userId) => {
 		return (
-			fetch(`http://localhost:8000/posts?user=${userId}`),
+			fetch(`http://localhost:8000/posts?user=${userId}`,
 			{
 				headers: {
 					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				},
 			}
-				.then((res) => res.json())
-				.then(setPosts)
-		);
+		)).then((res) => res.json())
+		.then(setPosts)
 	};
 
 	const getPosts = () => {
 		return (
-			fetch(`http://localhost:8000/posts`),
+			fetch(`http://localhost:8000/posts`,
 			{
 				headers: {
 					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				},
-			}
-				.then((res) => res.json())
-				.then(setPosts)
-		);
+			}			
+		)).then((res) => res.json())
+		.then(setPosts)
 	};
 
 	const deletePost = (postId) => {
@@ -55,15 +53,14 @@ export const PostProvider = (props) => {
 
 	const getPostsDetails = (postId) => {
 		return (
-			fetch(`http://localhost:8000/posts/${postId}`),
+			fetch(`http://localhost:8000/posts/${postId}`,
 			{
 				headers: {
 					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				},
-			}
-				.then((res) => res.json())
-				.then(setPost)
-		);
+			}		
+		)).then((res) => res.json())
+		.then(setPost)
 	};
 
 	const updatePost = (update_post) => {

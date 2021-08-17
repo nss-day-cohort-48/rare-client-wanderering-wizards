@@ -8,28 +8,27 @@ export const CommentProvider = (props) => {
 
 	const getComments = () => {
 		return (
-			fetch(`http://localhost:8000/comments`),
+			fetch(`http://localhost:8000/comments`,
 			{
 				headers: {
 					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				},
 			}
-				.then((response) => response.json())
-				.then(setComments)
-		);
+			
+		)).then((response) => response.json())
+		.then(setComments)
 	};
 
 	const getCommentsByPostId = (postId) => {
 		return (
-			fetch(`http://localhost:8000/comments/${postId}`),
+			fetch(`http://localhost:8000/comments/${postId}`,
 			{
 				headers: {
 					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				},
 			}
-				.then((response) => response.json())
-				.then(setComments)
-		);
+		)).then((response) => response.json())
+		.then(setComments)
 	};
 
 	const createComment = (commentObject) => {
