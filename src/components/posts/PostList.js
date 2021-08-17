@@ -15,7 +15,12 @@ export const PostList = (props) => {
 		(post) => Date.parse(post.publication_date) < now
 	);
 
+
 	const history = useHistory();
+
+export const PostList = props => {
+    const {posts, getPosts} = useContext(PostContext)
+
 
 	useEffect(() => {
 		getPosts();

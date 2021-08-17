@@ -1,0 +1,25 @@
+.icon {
+    height: 1rem;
+}
+
+.controls_wrapper {
+    text-align: center;
+    color: white;
+    background-color: rgba(5, 5, 5, 0.658);
+    position: absolute;
+    margin-left: 40%;
+    border-radius: 5px;
+    height: 150px;
+    width: 300px;
+    box-shadow: 0.25rem 0.25rem 0.7rem #232425;
+}
+
+.controls_item {
+    margin-top: 1rem;
+}
+
+.controls_button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 4rem;
+}
