@@ -151,11 +151,6 @@ export const Register = (props) => {
 						/>
 					</fieldset>
 				</div>
-				<fieldset
-					style={{
-						textAlign: "center",
-					}}
-				></fieldset>
 				<button className="btn btn-1 btn-sep icon-send" type="submit">
 					Register
 				</button>
