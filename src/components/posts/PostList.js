@@ -18,10 +18,6 @@ export const PostList = (props) => {
 
 	const history = useHistory();
 
-export const PostList = props => {
-    const {posts, getPosts} = useContext(PostContext)
-
-
 	useEffect(() => {
 		getPosts();
 	}, []);

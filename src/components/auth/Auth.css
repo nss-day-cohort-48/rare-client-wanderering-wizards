@@ -12,6 +12,7 @@ fieldset {
     margin: auto;
     max-width: 900px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .form--login {
