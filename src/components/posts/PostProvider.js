@@ -47,7 +47,7 @@ export const PostProvider = (props) => {
 				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(postObject),
+			body: JSON.stringify(postObject)
 		}).then(getPosts);
 	};
 

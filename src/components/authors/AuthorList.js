@@ -24,6 +24,7 @@ export const AuthorList = () => {
 									Author: {author.user.first_name} {author.user.last_name}
 								</div>
 								<div>Username: {author.user.username}</div>
+								<div>Admin Status: {author.user.is_staff ? "Admin" : "Author"}</div>
 							</article>
 						</>
 					);
