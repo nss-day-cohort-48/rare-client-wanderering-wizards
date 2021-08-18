@@ -41,7 +41,7 @@ export const PostDetails = () => {
                 <div>{post.content}</div>
                 <div>Category: {post.category?.label}</div>
                 <div>Author: {post.user?.first_name} {post.user?.last_name}</div>
-                {userId === post.user_id ? renderDeleteButton() : ""}
+                {post.is_post_author?renderDeleteButton():""}
 
                 {post.comments?.map((comment) => {
                     return (
