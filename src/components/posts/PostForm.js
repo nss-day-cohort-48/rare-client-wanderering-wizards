@@ -52,10 +52,9 @@ export const PostForm = () => {
 		const userId = localStorage.getItem("rare_user_id");
 		if (checkForm() === true) {
 			createPost({
-				user_id: parseInt(userId),
 				category_id: parseInt(post.category_id),
 				title: post.title,
-				publication_date: new Date().toLocaleDateString(),
+				publication_date: new Date().toISOString().slice(0, 10),
 				image_url: post.image_url,
 				content: post.content,
 				approved: parseInt(1),
