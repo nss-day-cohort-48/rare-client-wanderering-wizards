@@ -27,6 +27,16 @@ export const CommentProvider = (props) => {
 		});
 	};
 
+  const getCommentsByPostId = (postId) => {
+		return fetch(`http://localhost:8000/posts/comments/${postId}`, {
+			headers: {
+				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
+			},
+		})
+			.then((response) => response.json())
+			.then(setComments);
+  }
+
 	const deleteComment = (commentId) => {
 		return fetch(`http://localhost:8000/comments/${commentId}`, {
 			method: "DELETE",
@@ -42,7 +52,8 @@ export const CommentProvider = (props) => {
 				comments,
 				getComments,
 				createComment,
-        deleteComment
+        deleteComment,
+        getCommentsByPostId
 			}}
 		>
 			{props.children}
