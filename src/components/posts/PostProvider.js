@@ -67,7 +67,7 @@ export const PostProvider = (props) => {
 		return fetch(`http://localhost:8000/posts/${update_post.id}`, {
 			method: "PUT",
 			headers: {
-				Authorization: `Token ${localStorage.getItem("lu_token")}`,
+				Authorization: `Token ${localStorage.getItem("rare_user_token")}`,
 
 				"Content-Type": "application/json",
 			},

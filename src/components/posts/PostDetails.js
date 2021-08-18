@@ -6,11 +6,10 @@ import { CommentContext } from "../comments/CommentProvider";
 export const PostDetails = () => {
 	const { post, getPostsDetails, deletePost } = useContext(PostContext);
 	const { deleteComment } = useContext(CommentContext);
+  const { postId } = useParams();
+	const history = useHistory();
 
 	const userId = parseInt(localStorage.getItem("rare_user_id"));
-
-	const { postId } = useParams();
-	const history = useHistory();
 
 	useEffect(() => {
 		getPostsDetails(postId);
@@ -44,18 +43,16 @@ export const PostDetails = () => {
 		);
 	};
 
-	return (
-		<>
-			<div>
-				<h1>{post.title}</h1>
-				<div>{post.publication_date}</div>
-				<img src={post.image_url}></img>
-				<div>{post.content}</div>
-				<div>Category: {post.category?.label}</div>
-				<div>
-					Author: {post.user?.first_name} {post.user?.last_name}
-				</div>
-				{userId === post.user_id ? renderDeleteButton() : ""}
+  return (
+          <>
+          <div>
+              <h1>{post.title}</h1>     
+                  <div>{post.publication_date}</div>
+                  <img src={post.image_url}></img>
+                  <div>{post.content}</div>
+                  <div>Category: {post.category?.label}</div>
+                  <div>Author: {post.user?.first_name} {post.user?.last_name}</div>
+                  {post.is_post_author?renderDeleteButton():""}
 
 				{post.comments?.map((comment) => {
 					return (
@@ -74,15 +71,6 @@ export const PostDetails = () => {
 						</>
 					);
 				})}
-				{
-					post.tags?.map((tag) => {
-						return (
-							<>
-							<div>Tag: {tag.label}</div>
-							</>
-						)
-					})
-				}
 				<button
 					onClick={() => {
 						history.push(`/posts/comments/${postId}`);

@@ -30,26 +30,12 @@ export const PostEdit = () => {
         handleSavePost()
       }
         }, [isLoading])
-
-
-    
-    // state is empty object
-    // useEffect(() => {
-    //     console.log(post)
-    //     getPostsDetails(postId).then( res => setPost(res)).then( () => {console.log(post)})
-        
-    // }, [postId])
-
-
     
     // state is undefined
     useEffect(() => {
         getPostsDetails(postId)
         console.log(post)
       }, [postId])
-
-
-
 
     const checkForm = () => {
       if (
@@ -60,9 +46,6 @@ export const PostEdit = () => {
       ){return false}
       else {return true}
     }
-
-    
-
 
 
     const handleSavePost = () => {
