@@ -14,6 +14,9 @@ import { TagList } from "./tags/TagList";
 import { TagForm } from "./tags/TagForm";
 import { CommentProvider } from "./comments/CommentProvider";
 import { CommentForm } from "./comments/CommentForm";
+import { AuthorProvider } from "./authors/AuthorProvider";
+import { AuthorList } from "./authors/AuthorList.js";
+import { AuthorDetail } from "./authors/AuthorDetail.js";
 
 export const ApplicationViews = () => {
 	return (
@@ -33,44 +36,52 @@ export const ApplicationViews = () => {
 						fontSize: 46,
 					}}
 				>
-					💎 WELCOME TO RARE
-                    💎
+					💎 WELCOME TO RARE 💎
 				</div>
 			</Route>
 			<PostProvider>
 				<CategoryProvider>
 					<CommentProvider>
 						<TagProvider>
-							<Route exact path="/categories">
-								<CategoryList />
-							</Route>
-                            <Route exact path="/categories/create">
-								<CategoryForm />
-							</Route>
-							<Route exact path="/myposts">
-								<MyPostList />
-							</Route>
-							<Route exact path="/posts/create">
-								<PostForm />
-							</Route>
-							<Route exact path="/posts/:postId(\d+)">
-								<PostDetails />
-							</Route>
-							<Route exact path="/posts">
-								<PostList />
-							</Route>
-                            <Route exact path="/posts/edit/:postId(\d+)">
-                                <PostEdit />
-                            </Route>
-							<Route exact path="/tags">
-								<TagList />
-							</Route>
-                            <Route exact path="/tags/create">
-								<TagForm />
-							</Route>
-                            <Route exact path="/posts/comments/:postId(\d+)">
-                                <CommentForm />
-                            </Route>
+							<AuthorProvider>
+								<Route exact path="/categories">
+									<CategoryList />
+								</Route>
+								<Route exact path="/categories/create">
+									<CategoryForm />
+								</Route>
+								<Route exact path="/myposts">
+									<MyPostList />
+								</Route>
+								<Route exact path="/posts/create">
+									<PostForm />
+								</Route>
+								<Route exact path="/posts/:postId(\d+)">
+									<PostDetails />
+								</Route>
+								<Route exact path="/posts">
+									<PostList />
+								</Route>
+								<Route exact path="/posts/edit/:postId(\d+)">
+									<PostEdit />
+								</Route>
+								<Route exact path="/tags">
+									<TagList />
+								</Route>
+								<Route exact path="/tags/create">
+									<TagForm />
+								</Route>
+								<Route exact path="/posts/comments/:postId(\d+)">
+									<CommentForm />
+								</Route>
+
+								<Route exact path="/authors">
+									<AuthorList />
+								</Route>
+								<Route exact path="/authors/:authorId(\d+)">
+									<AuthorDetail />
+								</Route>
+							</AuthorProvider>
 						</TagProvider>
 					</CommentProvider>
 				</CategoryProvider>

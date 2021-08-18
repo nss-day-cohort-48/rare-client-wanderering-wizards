@@ -41,7 +41,6 @@ export const Register = (props) => {
 				.then((res) => res.json())
 				.then((res) => {
 					localStorage.setItem("rare_user_id", res.token);
-					localStorage.setItem("rare_user_id", res.id);
 					history.push("/");
 				});
 		} else {

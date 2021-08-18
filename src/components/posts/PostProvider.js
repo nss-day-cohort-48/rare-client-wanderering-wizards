@@ -8,9 +8,9 @@ export const PostProvider = (props) => {
 	const [posts, setPosts] = useState([]);
 	const [post, setPost] = useState({});
 
-	const getPostsByUserId = (userId) => {
+	const getPostsByUserId = () => {
 		return (
-			fetch(`http://localhost:8000/posts?user=${userId}`,
+			fetch(`http://localhost:8000/posts/myposts`,
 			{
 				headers: {
 					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
@@ -44,7 +44,7 @@ export const PostProvider = (props) => {
 		return fetch("http://localhost:8000/posts", {
 			method: "POST",
 			headers: {
-				Authorization: `Token ${localStorage.getItem("lu_token")}`,
+				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(postObject),
