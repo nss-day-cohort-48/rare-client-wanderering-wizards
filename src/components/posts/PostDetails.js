@@ -5,7 +5,6 @@ import { CommentContext } from "../comments/CommentProvider";
 
 export const PostDetails = () => {
 	const { post, getPostsDetails, deletePost } = useContext(PostContext);
-	const { deleteComment } = useContext(CommentContext);
 
 	const userId = parseInt(localStorage.getItem("rare_user_id"));
 
@@ -30,19 +29,6 @@ export const PostDetails = () => {
 		);
 	};
 
-	const renderDeleteCommentButton = (id) => {
-		return (
-			<button
-				onClick={() => {
-					deleteComment(id).then(() => {
-            getPostsDetails(postId)
-					});
-				}}
-			>
-				DELETE
-			</button>
-		);
-	};
 
 	return (
 		<>
@@ -57,31 +43,11 @@ export const PostDetails = () => {
 				</div>
 				{userId === post.user_id ? renderDeleteButton() : ""}
 
-				{post.comments?.map((comment) => {
-					return (
-						<>
-							<div
-								style={{
-									marginTop: "3rem",
-									marginBottom: "3rem",
-								}}
-							>
-								{comment.user.first_name}
-								<br />
-								{comment.content}
-								{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
-							</div>
-						</>
-					);
-				})}
-				<button
-					onClick={() => {
-						history.push(`/posts/comments/${postId}`);
-					}}
-				>
-					Comment
-				</button>
+				<button onClick={() => {
+          history.push(`/posts/comments/${postId}`)
+        }}>View Comments</button>
 			</div>
 		</>
 	);
 };
+

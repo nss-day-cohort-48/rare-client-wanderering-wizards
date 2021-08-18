@@ -40,6 +40,7 @@ export const PostProvider = (props) => {
 			},
 		});
 	};
+  
 	const createPost = (postObject) => {
 		return fetch("http://localhost:8000/posts", {
 			method: "POST",
