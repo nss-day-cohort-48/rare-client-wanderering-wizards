@@ -16,6 +16,7 @@ import { CommentProvider } from "./comments/CommentProvider";
 import { CommentForm } from "./comments/CommentForm";
 import { AuthorProvider } from "./authors/AuthorProvider";
 import { AuthorList } from "./authors/AuthorList.js"
+import { AuthorDetail } from "./authors/AuthorDetail.js"
 
 export const ApplicationViews = () => {
 	return (
@@ -76,6 +77,9 @@ export const ApplicationViews = () => {
 							</Route>
 							<Route exact path="/authors">
 								<AuthorList />
+							</Route>
+							<Route exact path="/authors/:authorId(\d+)">
+								<AuthorDetail />
 							</Route>
 							</AuthorProvider>
 						</TagProvider>
