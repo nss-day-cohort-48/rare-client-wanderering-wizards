@@ -43,7 +43,7 @@ export const CommentForm = () => {
             post_id: parseInt(postId),
             author_id: parseInt(userId),
             content: comments.content,
-            comment_date: new Date().toLocaleDateString()
+            created_on: new Date().toISOString().slice(0, 10)
         })
         .then(() => history.push(`/posts/${postId}`))
         }  
@@ -63,7 +63,7 @@ export const CommentForm = () => {
                 <fieldset>
                 <div>
                     <label htmlFor="comment">Comment:</label>
-                    <input value={comments.content} type="content" id="content" name="content" onChange={handleControlledInputChange}/>
+                    <input type="content" id="content" name="content" onChange={handleControlledInputChange}/>
                 </div>
                 </fieldset>
 
