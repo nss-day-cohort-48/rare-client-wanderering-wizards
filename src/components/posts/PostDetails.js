@@ -74,6 +74,15 @@ export const PostDetails = () => {
 						</>
 					);
 				})}
+				{
+					post.tags?.map((tag) => {
+						return (
+							<>
+							<div>Tag: {tag.label}</div>
+							</>
+						)
+					})
+				}
 				<button
 					onClick={() => {
 						history.push(`/posts/comments/${postId}`);
