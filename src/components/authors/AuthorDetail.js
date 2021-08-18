@@ -6,7 +6,7 @@ export const AuthorDetail = () => {
   const {getAuthorDetails, author} = useContext(AuthorContext)
 
   const {authorId} = useParams()
-  const history = useHistory()
+  // const history = useHistory()
 
 
     useEffect(() => {

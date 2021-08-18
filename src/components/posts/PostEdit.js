@@ -2,12 +2,17 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { PostContext } from "./PostProvider";
 import { CategoryContext } from "../category/CategoryProvider";
+import { TagContext } from "../tags/TagProvider";
 
 export const PostEdit = () => {
-    const { post, setPost, updatePost, getPostsDetails } = useContext(PostContext)
+    const { updatePost, getPost } = useContext(PostContext)
     const { categories, getCategories} = useContext(CategoryContext)
+    const { tags, getTags } = useContext(TagContext);
+
+    const [ post, setPost ] = useState({})
 
     const [isLoading, setIsLoading] = useState(false);
+    const [postTags, setPostTags] = useState([]);
 
 	const history = useHistory();
     const { postId } = useParams();
@@ -19,7 +24,7 @@ export const PostEdit = () => {
     }
 
     useEffect(() => {
-        getCategories()
+        getCategories().then(getTags)
     }, [])
 
     useEffect(() => {
@@ -33,8 +38,17 @@ export const PostEdit = () => {
     
     // state is undefined
     useEffect(() => {
-        getPostsDetails(postId)
-        console.log(post)
+        getPost(postId).then(post => {
+          console.log(post)
+          setPost({
+            id: postId,
+            category_id: parseInt(post.category.id),
+            title: post.title,
+            image_url: post.image_url,
+            content: post.content
+          })
+          setPostTags(post.tags)
+        })
       }, [postId])
 
     const checkForm = () => {
@@ -57,6 +71,7 @@ export const PostEdit = () => {
             title: post.title,
             image_url: post.image_url,
             content: post.content,
+            tags: postTags
         })
         .then(() => history.push("/myposts"))
         }  
@@ -103,6 +118,33 @@ export const PostEdit = () => {
             <textarea value={post.content} type="content" id="content" name="content" className="center  post blueText" onChange={handleControlledInputChange}/>
           </div>
         </fieldset>
+        <fieldset>
+					<div className="center posts  blueText">
+						{tags.map((tag) => (
+							<>
+								<input
+									type="checkbox"
+									key={tag.id}
+									value={tag.id}
+									onClick={(event) => {
+										const copyPostTags = [...postTags];
+										const idPosition = copyPostTags.findIndex(postTag => postTag.id === tag.id);
+										if (idPosition >= 0) {
+											copyPostTags.splice(idPosition, 1);
+										} else {
+											copyPostTags.push(tag);
+										}
+										setPostTags(copyPostTags);
+									}}
+                  checked={postTags.some((postTag) => {
+                    return postTag.id === tag.id
+                  })}
+								/>
+								<div>{tag.label}</div>
+							</>
+						))}
+					</div>
+				</fieldset>
         
         <button className="center post blueText"
           disabled={isLoading}
