@@ -41,6 +41,16 @@ export const PostDetails = () => {
 				<div>
 					Author: {post.user?.first_name} {post.user?.last_name}
 				</div>
+				{
+                post.tags?.map(tag => {
+                    return (
+											<>
+                        <div>Tag: {tag.label}</div>
+											</>
+												
+                    )
+                })
+            }
 				{userId === post.user_id ? renderDeleteButton() : ""}
 
 				<button onClick={() => {
