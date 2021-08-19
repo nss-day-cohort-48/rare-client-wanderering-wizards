@@ -48,7 +48,7 @@ export const PostProvider = (props) => {
 				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(postObject),
+			body: JSON.stringify(postObject)
 		}).then(getPosts);
 	};
 
@@ -57,11 +57,22 @@ export const PostProvider = (props) => {
 			fetch(`http://localhost:8000/posts/${postId}`,
 			{
 				headers: {
-					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
+					"Authorization": `Token ${localStorage.getItem("rare_user_id")}`,
 				},
 			}		
 		)).then((res) => res.json())
 		.then(setPost)
+	};
+
+	const getPost = (postId) => {
+		return (
+			fetch(`http://localhost:8000/posts/${postId}`,
+			{
+				headers: {
+					"Authorization": `Token ${localStorage.getItem("rare_user_id")}`,
+				},
+			}		
+		)).then((res) => res.json())
 	};
 
 	const updatePost = (update_post) => {
@@ -73,6 +84,17 @@ export const PostProvider = (props) => {
 			},
 			body: JSON.stringify(update_post),
 		}).then(getPosts);
+	};
+
+	const managePostApproval = (post) => {
+		return fetch(`http://localhost:8000/posts/${post.id}/approve`, {
+			method: "PUT",
+			headers: {
+				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(post),
+		})
 	};
 
 	return (
@@ -88,6 +110,8 @@ export const PostProvider = (props) => {
 				deletePost,
 				createPost,
 				updatePost,
+				managePostApproval,
+				getPost
 			}}
 		>
 			{props.children}
