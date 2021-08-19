@@ -17,6 +17,7 @@ import { CommentForm } from "./comments/CommentForm";
 import { AuthorProvider } from "./authors/AuthorProvider";
 import { AuthorList } from "./authors/AuthorList.js";
 import { AuthorDetail } from "./authors/AuthorDetail.js";
+import { CommentEditForm } from "./comments/CommentEditForm";
 
 export const ApplicationViews = () => {
 	return (
@@ -74,6 +75,9 @@ export const ApplicationViews = () => {
 								<Route exact path="/posts/comments/:postId(\d+)">
 									<CommentForm />
 								</Route>
+                <Route exact path="/comments/edit/:commentId(\d+)">
+                  <CommentEditForm />
+                </Route>
 
 								<Route exact path="/authors">
 									<AuthorList />
