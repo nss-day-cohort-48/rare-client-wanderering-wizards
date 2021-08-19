@@ -29,17 +29,6 @@ export const ApplicationViews = () => {
 				}}
 			></main>
 
-			<Route exact path="/">
-				<div
-					style={{
-						margin: "auto",
-						textAlign: "center",
-						fontSize: 46,
-					}}
-				>
-					💎 WELCOME TO RARE 💎
-				</div>
-			</Route>
 			<PostProvider>
 				<CategoryProvider>
 					<CommentProvider>
@@ -60,7 +49,7 @@ export const ApplicationViews = () => {
 								<Route exact path="/posts/:postId(\d+)">
 									<PostDetails />
 								</Route>
-								<Route exact path="/posts">
+								<Route exact path="/">
 									<PostList />
 								</Route>
 								<Route exact path="/posts/edit/:postId(\d+)">

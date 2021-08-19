@@ -1,49 +1,128 @@
-import React from "react"
-import { Link, useHistory } from "react-router-dom"
-import "./NavBar.css"
-import Logo from "../../images/rarerLogo.png"
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import "./NavBar.css";
+import Logo from "../../images/rarerLogo.png";
+import { AuthorContext } from "../authors/AuthorProvider";
+
+import logoutDoor from "../../images/logout.png";
 
 export const NavBar = () => {
-    const history = useHistory()
+	const history = useHistory();
 
-    return (
-        <ul className="navbar">
-            <li className="navbar__item">
-                <Link to="/"><img className="navbar__logo" src={Logo} /></Link>
-            </li>
-            <li className="navbar__item navbar__text">
-                <Link className="navbar__link" to="/posts">All Posts</Link>
-            </li>
-            <li className="navbar__item navbar__text">
-                <Link className="navbar__link" to="/myposts">My Posts</Link>
-            </li>
-            <li className="navbar__item navbar__text">
-                <Link className="navbar__link" to="/categories">Category Manager</Link>
-            </li>
-            <li className="navbar__item navbar__text">
-                <Link className="navbar__link" to="/tags">Tag Manager</Link>
-            </li>
-            <li className="navbar__item navbar__text">
-                <Link className="navbar__link" to="/authors">User Manager</Link>
-            </li>
-            {
-                (localStorage.getItem("rare_user_id") !== null) ?
-                    <li className="navbar__item navbar__text">
-                        <button className="nav-link fakeLink"
-                            onClick={() => {
-                                localStorage.removeItem("rare_user_id")
-                                history.push({ pathname: "/" })
-                            }}
-                        >Logout</button>
-                    </li> :
-                    <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
-                        </li>
-                    </>
-            }        </ul>
-    )
+	const { author, getAuthorById } = useContext(AuthorContext);
+	const [menuActive, setMenuActive] = useState(false);
+
+	useEffect(() => {
+		getAuthorById();
+	}, []);
+	console.log(author);
+
+	const showMenu = () => {
+		return (
+			<>
+				<ul id="menu">
+					<li className="">
+						<Link className="navbar__link" to="/myposts">
+							My Posts
+						</Link>
+					</li>
+					<li className="">
+						<Link className="navbar__link" to="/categories">
+							Category Manager
+						</Link>
+					</li>
+					<li className="">
+						<Link className="navbar__link" to="/tags">
+							Tag Manager
+						</Link>
+					</li>
+					<li className="">
+						<Link className="navbar__link" to="/authors">
+							User Manager
+						</Link>
+					</li>
+				</ul>
+			</>
+		);
+	};
+
+	return (
+		<>
+			<ul className="navbar">
+				<li className="">
+					<Link to="/">
+						<img className="navbar__logo" src={Logo} />
+					</Link>
+				</li>
+				{localStorage.getItem("rare_user_id") !== null ? (
+					<li className="navbar__item">
+						<button
+							className="nav-link fakeLink"
+							onClick={() => {
+								localStorage.removeItem("rare_user_id");
+								history.push({ pathname: "/" });
+							}}
+						>
+							<img
+								style={{ maxHeight: "1.5rem" }}
+								className="logoutButton"
+								src={logoutDoor}
+							/>
+						</button>
+					</li>
+				) : (
+					<>
+						<li className="nav-item">
+							<Link className="nav-link" to="/login">
+								Login
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/register">
+								Register
+							</Link>
+						</li>
+					</>
+				)}{" "}
+				<Link>
+					<img
+						style={{ maxHeight: "3rem", borderRadius: "50%" }}
+						src={author.profile_image_url}
+						className="navbar__item"
+						onClick={() => {
+							if (menuActive) {
+								setMenuActive(false);
+							} else {
+								setMenuActive(true);
+							}
+						}}
+					/>
+				</Link>
+			</ul>
+			{menuActive ? showMenu() : ""}
+		</>
+	);
+};
+
+{
+	/* <li className="navbar__item navbar__text">
+					<Link className="navbar__link" to="/myposts">
+						My Posts
+					</Link>
+				</li>
+				<li className="navbar__item navbar__text">
+					<Link className="navbar__link" to="/categories">
+						Category Manager
+					</Link>
+				</li>
+				<li className="navbar__item navbar__text">
+					<Link className="navbar__link" to="/tags">
+						Tag Manager
+					</Link>
+				</li>
+				<li className="navbar__item navbar__text">
+					<Link className="navbar__link" to="/authors">
+						User Manager
+					</Link>
+				</li> */
 }

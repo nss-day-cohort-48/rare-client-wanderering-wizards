@@ -18,7 +18,8 @@
 
  .navbar {
      display: flex;
-     justify-content: space-evenly;
+     max-width: 90%;
+     margin: auto;
  }
 
  .navbar__logo {
@@ -34,6 +35,7 @@
     padding-top: .3rem;
     padding-bottom: .3rem;
     letter-spacing: 5px;
+    margin-left: auto;
 }
 
 .navbar__text {
@@ -58,4 +60,18 @@
 .navbar__text:hover {
     background: #cacaca;
 	color: rgb(255, 255, 255);
+}
+
+.logoutButton {
+  margin-left: auto;
+}
+
+#menu {
+  position: fixed;
+  right: 22px;
+  top: 15%;
+  width: 8em;
+  margin-top: -2.5em;
+  border: 2px solid black;
+  padding: 1rem;
 }

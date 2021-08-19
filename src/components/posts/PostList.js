@@ -17,8 +17,7 @@ export const PostList = (props) => {
   //   (post) => Date.parse(post.publication_date) <= now
   // );
   const history = useHistory();
-	console.log(isAdmin)
-
+	
   useEffect(() => {
     getPosts();
   }, []);
