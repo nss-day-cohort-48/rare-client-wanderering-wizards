@@ -8,6 +8,7 @@ export const PostForm = () => {
 	const { createPost } = useContext(PostContext);
 	const { categories, getCategories } = useContext(CategoryContext);
 	const { tags, getTags } = useContext(TagContext);
+	const [ currentPicture, setCurrentPicture ] = useState({})
 
 	const [post, setPosts] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +16,21 @@ export const PostForm = () => {
 	const [postTags, setPostTags] = useState([]);
 
 	const history = useHistory();
+
+	const getBase64 = (file, callback) => {
+		const reader = new FileReader();
+		reader.addEventListener('load', () => callback(reader.result));
+		reader.readAsDataURL(file);
+}
+
+	const createPostImageString = (event) => {
+		getBase64(event.target.files[0], (base64ImageString) => {
+				console.log("Base64 of file is", base64ImageString);
+
+				// Update a component state variable to the value of base64ImageString
+				setCurrentPicture(base64ImageString)
+		});
+}
 
 	const handleControlledInputChange = (event) => {
 		const newPost = { ...post };
@@ -39,7 +55,6 @@ export const PostForm = () => {
 		if (
 			post.category_id === undefined ||
 			post.title === undefined ||
-			post.image_url === undefined ||
 			post.content === undefined
 		) {
 			return false;
@@ -55,7 +70,7 @@ export const PostForm = () => {
 				category_id: parseInt(post.category_id),
 				title: post.title,
 				publication_date: new Date().toISOString().slice(0, 10),
-				image_url: post.image_url,
+				image_url: currentPicture,
 				content: post.content,
 				approved: 0,
 				tags: postTags,
@@ -104,6 +119,9 @@ export const PostForm = () => {
 					</div>
 				</fieldset>
 				<fieldset>
+				<input type="file" id="image_url" onChange={createPostImageString} />
+				</fieldset>
+				{/* <fieldset>
 					<div className="center posts  blueText">
 						<label htmlFor="image_url">Image Url:</label>
 						<input
@@ -115,7 +133,7 @@ export const PostForm = () => {
 							onChange={handleControlledInputChange}
 						/>
 					</div>
-				</fieldset>
+				</fieldset> */}
 				<fieldset>
 					<div className="center posts  blueText">
 						<label htmlFor="content">Content:</label>
