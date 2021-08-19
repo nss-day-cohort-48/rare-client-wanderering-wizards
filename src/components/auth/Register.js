@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Auth.css";
 import registerPlaceholder from "../../images/registerImagePlaceholder.png";
@@ -14,6 +14,22 @@ export const Register = (props) => {
 	const verifyPassword = useRef();
 	const passwordDialog = useRef();
 	const history = useHistory();
+	const [ currentPicture, setCurrentPicture ] = useState({})
+
+	const getBase64 = (file, callback) => {
+		const reader = new FileReader();
+		reader.addEventListener('load', () => callback(reader.result));
+		reader.readAsDataURL(file);
+}
+
+	const createUserImageString = (event) => {
+		getBase64(event.target.files[0], (base64ImageString) => {
+				console.log("Base64 of file is", base64ImageString);
+
+				// Update a component state variable to the value of base64ImageString
+				setCurrentPicture(base64ImageString)
+		});
+}
 
 	const handleRegister = (e) => {
 		e.preventDefault();
@@ -24,7 +40,7 @@ export const Register = (props) => {
 				last_name: lastName.current.value,
 				email: email.current.value,
 				password: password.current.value,
-				profile_image_url: profile_image_url.current.value,
+				profile_image_url: currentPicture,
 				bio: bio.current.value,
 				created_on: new Date().toISOString().slice(0, 10),
 				active: 1,
@@ -130,7 +146,23 @@ export const Register = (props) => {
 						/>
 					</fieldset>
 					<fieldset>
+					<input type="file" id="image_url" onChange={createUserImageString} />
+            {/* <input type="hidden" name="image_url" value={gameIdInt} /> */}
+            {/* <button onClick={(evt) => {
+                evt.preventDefault()
+                const picture = {
+                image: currentPicture,
+                gameId: gameIdInt
+                }
+                // Upload the stringified image that is stored in state
+                createPicture(picture)
+                .then(() => history.push("/games"))
+            }}>Upload</button> */}
+					</fieldset>
+					{/* <fieldset>
 						<input
+							type="file"
+							id="image"
 							ref={profile_image_url}
 							type="profile_image_url"
 							name="profileImageUrl"
@@ -138,7 +170,7 @@ export const Register = (props) => {
 							placeholder="Profile Image URL"
 							required
 						/>
-					</fieldset>
+					</fieldset> */}
 					<fieldset>
 						<textarea
 							ref={bio}
