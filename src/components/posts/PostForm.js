@@ -143,7 +143,7 @@ export const PostForm = () => {
 										if (idPosition >= 0) {
 											copyPostTags.splice(idPosition, 1);
 										} else {
-											copyPostTags.push(tag);
+											copyPostTags.push(tag.id);
 										}
 										setPostTags(copyPostTags);
 									}}
