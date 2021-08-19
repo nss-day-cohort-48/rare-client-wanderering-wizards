@@ -5,7 +5,8 @@ import { PostContext } from "../posts/PostProvider";
 
 export const CommentForm = () => {
 	const { post, getPostsDetails } = useContext(PostContext);
-	const { createComment, deleteComment } = useContext(CommentContext);
+	const { createComment, deleteComment, updateComment } =
+		useContext(CommentContext);
 
 	const [comments, setComments] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
@@ -65,12 +66,35 @@ export const CommentForm = () => {
 					});
 				}}
 			>
-				DELETE
+				Delete
 			</button>
 		);
 	};
+
+	const renderEditCommentButton = (id) => {
+		// console.log(id);
+		return (
+			<button
+				id={id}
+				onClick={() => {
+					history.push(`/comments/edit/${id}`);
+				}}
+			>
+				Edit
+			</button>
+		);
+	};
+
 	return (
 		<>
+			<button
+				onClick={(event) => {
+					history.goBack([-1]);
+					event.preventDefault();
+				}}
+			>
+				Back to post
+			</button>
 			<h1>New Comment</h1>
 
 			<form className="flex comments">
@@ -87,6 +111,7 @@ export const CommentForm = () => {
 				</fieldset>
 
 				<button
+					style={{ marginBottom: "1rem", marginTop: "1rem" }}
 					disabled={isLoading}
 					onClick={(event) => {
 						setIsLoading(true);
@@ -109,6 +134,7 @@ export const CommentForm = () => {
 							{comment.user.first_name}
 							<br />
 							{comment.content}
+							{comment.isAuthor ? renderEditCommentButton(comment.id) : ""}
 							{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
 						</div>
 					</>
