@@ -4,8 +4,8 @@ import { AuthorContext } from "./AuthorProvider"
 
 export const AuthorList = () => {
   const {getAuthors, authors} = useContext(AuthorContext)
-
   const alphabeticalAuthors = authors.sort((author1, author2) => author1.user.username.localeCompare(author2.user.username))
+
 
   useEffect(() => {
     getAuthors()

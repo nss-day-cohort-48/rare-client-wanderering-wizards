@@ -4,7 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import { AuthorContext } from "../authors/AuthorProvider";
 
 export const PostList = (props) => {
-  const { posts, getPosts } = useContext(PostContext);
+  const { posts, getPosts, managePostApproval } = useContext(PostContext);
   const isAdmin = JSON.parse(localStorage.getItem("rare_admin"));
 
   const approvedPosts = posts.filter((post) => post.approved > 0);
@@ -22,6 +22,22 @@ export const PostList = (props) => {
   useEffect(() => {
     getPosts();
   }, []);
+
+	const manageApproval = (post) => {
+		if (post.approved) {
+			const updatedPost = {
+				id: post.id,
+				approved: 0
+			}
+			managePostApproval(updatedPost)
+		} else {
+			const updatedPost = {
+				id: post.id,
+				approved: 1
+			}
+			managePostApproval(updatedPost)
+		}
+	}
 
   // useEffect(()=>{
   // 	setAuthor(authors.find(author=>author.user.username === ))
@@ -76,7 +92,8 @@ export const PostList = (props) => {
                       type="checkbox"
                       id={`approval-${post.id}`}
                       name="approval"
-                      checked={post.approved ? "true" : ""}
+                      defaultChecked={post.approved ? "true" : ""}
+											onChange={()=>{manageApproval(post)}}
                     />
                   </div>
                 </article>

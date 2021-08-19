@@ -67,12 +67,22 @@ export const PostProvider = (props) => {
 		return fetch(`http://localhost:8000/posts/${update_post.id}`, {
 			method: "PUT",
 			headers: {
-				Authorization: `Token ${localStorage.getItem("lu_token")}`,
-
+				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify(update_post),
 		}).then(getPosts);
+	};
+
+	const managePostApproval = (post) => {
+		return fetch(`http://localhost:8000/posts/${post.id}/approve`, {
+			method: "PUT",
+			headers: {
+				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(post),
+		})
 	};
 
 	return (
@@ -88,6 +98,7 @@ export const PostProvider = (props) => {
 				deletePost,
 				createPost,
 				updatePost,
+				managePostApproval
 			}}
 		>
 			{props.children}
