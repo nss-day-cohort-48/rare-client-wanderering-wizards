@@ -49,7 +49,7 @@ export const PostForm = () => {
 	};
 
 	const handleSavePost = () => {
-		const userId = localStorage.getItem("rare_user_id");
+		// const userId = localStorage.getItem("rare_user_id");
 		if (checkForm() === true) {
 			createPost({
 				category_id: parseInt(post.category_id),
@@ -57,9 +57,9 @@ export const PostForm = () => {
 				publication_date: new Date().toISOString().slice(0, 10),
 				image_url: post.image_url,
 				content: post.content,
-				approved: parseInt(1),
+				approved: 0,
 				tags: postTags,
-			}).then(() => history.push("/myposts"));
+			}).then(() => history.push("/posts"));
 		} else {
 			window.alert("Please fill in all form fields before submitting post.");
 			setIsLoading(false);

@@ -48,7 +48,7 @@ export const PostProvider = (props) => {
 				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(postObject),
+			body: JSON.stringify(postObject)
 		}).then(getPosts);
 	};
 
@@ -86,6 +86,17 @@ export const PostProvider = (props) => {
 		}).then(getPosts);
 	};
 
+	const managePostApproval = (post) => {
+		return fetch(`http://localhost:8000/posts/${post.id}/approve`, {
+			method: "PUT",
+			headers: {
+				Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(post),
+		})
+	};
+
 	return (
 		<PostContext.Provider
 			value={{
@@ -99,6 +110,7 @@ export const PostProvider = (props) => {
 				deletePost,
 				createPost,
 				updatePost,
+				managePostApproval,
 				getPost
 			}}
 		>
