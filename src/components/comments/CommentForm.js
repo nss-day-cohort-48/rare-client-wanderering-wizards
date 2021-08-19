@@ -72,7 +72,7 @@ export const CommentForm = () => {
 	};
 
 	const renderEditCommentButton = (id) => {
-		console.log(id);
+		// console.log(id);
 		return (
 			<button
 				id={id}

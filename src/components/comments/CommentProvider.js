@@ -55,6 +55,7 @@ export const CommentProvider = (props) => {
 			},
 		})
 	}
+
   const updateComment = (update_comment) => {
 		return fetch(`http://localhost:8000/comments/${update_comment.id}`, {
 			method: "PUT",
