@@ -17,81 +17,85 @@
 } */
 
 .navbar {
-	display: flex;
-	max-width: 90%;
-	margin: auto;
+    display: flex;
+    margin: auto;
+    box-shadow: 1px -1px 15px 0px rgb(74 74 74 / 17%);
 }
 
 .navbar__logo {
-	max-height: 3.5rem;
-	cursor: pointer;
+    max-height: 3.5rem;
+    cursor: pointer;
+}
+
+.navSpace {
+    width: 9%;
 }
 
 .navbar__item {
-	align-self: center;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	padding-top: 0.3rem;
-	padding-bottom: 0.3rem;
-	letter-spacing: 5px;
-	margin-left: auto;
+    align-self: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    letter-spacing: 5px;
+    margin-left: auto;
 }
+
 .navbar__create {
-	align-self: center;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	padding-top: 0.3rem;
-	padding-bottom: 0.3rem;
-	letter-spacing: 5px;
+    align-self: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    letter-spacing: 5px;
 }
 
 .navbar__link {
-	font-size: .8rem;
+    font-size: .8rem;
 }
 
 .navbar__text:hover {
-	background: #cacaca;
-	color: rgb(255, 255, 255);
+    background: #cacaca;
+    color: rgb(255, 255, 255);
 }
 
 .logoutButton {
-	margin-left: auto;
+    margin-left: auto;
 }
 
 #menu {
-	position: fixed;
-	right: 22px;
-	top: 15%;
-	width: 12.5em;
-	margin-top: -2.5em;
-	border: 2px solid #76767624;
-	padding: 1rem;
-	box-shadow: 16px 18px 0px 0px rgb(95 94 94 / 0%),
-		4px 4px 6px 0 rgb(125 124 124 / 50%);
-	background-color: rgb(255 255 253);
-	padding: 8px 20px;
+    position: fixed;
+    right: 22px;
+    top: 15%;
+    width: 12.5em;
+    margin-top: -2.5em;
+    border: 2px solid #76767624;
+    padding: 1rem;
+    box-shadow: 16px 18px 0px 0px rgb(95 94 94 / 0%), 4px 4px 6px 0 rgb(125 124 124 / 50%);
+    background-color: rgb(255 255 253);
+    padding: 8px 20px;
 }
 
 .menuSep {
-	border-top: 1px solid rgba(230, 230, 230, 1);
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+    border-top: 1px solid rgba(230, 230, 230, 1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .menuSepLI {
-	padding-top: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 .menuPIU {
-	padding-left: 0;
-	align-self: center;
-	padding-top: 0.3rem;
-	padding-bottom: 0.3rem;
-	letter-spacing: 5px;
-	margin-left: auto;
+    padding-left: 0;
+    align-self: center;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    letter-spacing: 5px;
+    margin-left: auto;
 }
 
 .menuTop {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
