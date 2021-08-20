@@ -74,7 +74,7 @@ export const PostForm = () => {
 				content: post.content,
 				approved: 0,
 				tags: postTags,
-			}).then(() => history.push("/posts"));
+			}).then(() => history.push("/"));
 		} else {
 			window.alert("Please fill in all form fields before submitting post.");
 			setIsLoading(false);
@@ -85,7 +85,7 @@ export const PostForm = () => {
 		<>
 			<h1 className="goldenRodText center">New Post</h1>
 
-			<form className="flex post">
+			<form>
 				<fieldset>
 					<div className="center posts  blueText">
 						<label htmlFor="category">Category:</label>

@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./post.css";
 
 export const MyPostList = (props) => {
-  const { posts, getPostsByUserId } = useContext(PostContext);
+  const { posts, getPostsByUserId, deletePost } = useContext(PostContext);
   const history = useHistory();
 
   useEffect(() => {
@@ -25,6 +25,20 @@ export const MyPostList = (props) => {
         </button>
       );
     }
+
+  // const renderDeleteButton = () => {
+	// 	return (
+	// 		<button
+	// 			onClick={() => {
+	// 				deletePost(postId).then(() => {
+	// 					history.push("/myposts");
+	// 				});
+	// 			}}
+	// 		>
+	// 			DELETE POST
+	// 		</button>
+	// 	);
+	// };
 
   const handleUpdatePost = (post_id) => {
     history.push(`/posts/edit/${post_id}`);
@@ -50,6 +64,11 @@ export const MyPostList = (props) => {
                   {post.user.first_name} {post.user.last_name}
                 </div>
                 {post.is_post_author?editPostButton(post.id):""}
+                <button onClick={() => {
+					            deletePost(post.id).then(() => {
+						          history.push("/myposts")
+                      getPostsByUserId();
+					      });}}>DELETE POST</button>
               </article>
             </>
           );
