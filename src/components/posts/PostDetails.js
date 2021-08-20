@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { CommentContext } from "../comments/CommentProvider";
 
 export const PostDetails = () => {
-	const { post, getPostsDetails, deletePost } = useContext(PostContext);
+	const { post, getPostsDetails } = useContext(PostContext);
 
 	const userId = parseInt(localStorage.getItem("rare_user_id"));
 	console.log(userId)
@@ -16,19 +16,6 @@ export const PostDetails = () => {
 		getPostsDetails(postId);
 	}, []);
 
-	const renderDeleteButton = () => {
-		return (
-			<button
-				onClick={() => {
-					deletePost(postId).then(() => {
-						history.push("/myposts");
-					});
-				}}
-			>
-				DELETE POST
-			</button>
-		);
-	};
 
 
 	return (
@@ -55,7 +42,6 @@ export const PostDetails = () => {
                     )
                 })
             }
-				{renderDeleteButton()}
 
 				<button onClick={() => {
           history.push(`/posts/comments/${postId}`)
