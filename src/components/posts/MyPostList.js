@@ -46,12 +46,6 @@ export const MyPostList = (props) => {
 
   return (
     <>
-      <button
-        className="create__button"
-        onClick={() => history.push("/Posts/create")}
-      >
-        Create Post?
-      </button>
       <div>
         <h1>My Posts</h1>
         {posts.map((post) => {

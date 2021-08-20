@@ -1,7 +1,11 @@
 .flex {
 	display: flex;
 	margin: 5px;
-	
+	margin-left: auto;
+	/* margin-right: auto; */
+	/* width: 85%; */
+	max-width: 83%;
+	width: 800px;
 }
 
 .plContainer {
@@ -61,24 +65,23 @@
 	display: flex;
 	margin: 5px;
 	flex-flow: wrap column;
-  flex-basis: 67%;
-
+	flex-basis: 67%;
 }
 .postRight {
-    flex-basis: 33%;
-    display: flex;
-    justify-content: center
+	flex-basis: 33%;
+	display: flex;
+	justify-content: center;
 }
 .postImage {
-  align-self: center;
-    max-height: 9rem;
+	align-self: center;
+	max-height: 9rem;
 }
 
 .postDetailTitle {
-  text-align: center;
+	text-align: center;
 }
 
-.postDetailPI {
-
+.postDetailContainer {
+  max-width: 700px;
+  margin: auto;
 }
-

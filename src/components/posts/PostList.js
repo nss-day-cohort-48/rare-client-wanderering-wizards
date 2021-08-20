@@ -46,12 +46,6 @@ export const PostList = (props) => {
 
 	return (
 		<>
-			<button
-				className="create__button"
-				onClick={() => history.push("/Posts/create")}
-			>
-				Create Post?
-			</button>
 			<div className="plContainer">
 				<div className="plLeft">
 					{posts.map((post) => {
@@ -59,23 +53,50 @@ export const PostList = (props) => {
 							<>
 								{isAdmin ? (
 									<article className="flex">
-										<div>
-											<img src={post.user.author?.profile_image_url} />{" "}
-											{post.user.first_name} {post.user.last_name}
+										<div className="postLeft">
+											<div className="postAuthorDiv">
+												<img
+													className="postPI"
+													src={post.user.author?.profile_image_url}
+												/>
+												<strong>
+													{post.user.first_name} {post.user.last_name}
+												</strong>
+												<p style={{ margin: "0 3px 0 3px" }}>in</p>
+												<strong>{post.category.label}</strong>
+											</div>
+											<strong>
+												<Link className="postTitle" to={`/posts/${post.id}`}>
+													{post.title}
+												</Link>
+											</strong>
+											<div>{post.content.slice(0, 50).trim()}...</div>
+											<div className="postDateTag">
+												<div className="postPubDate">
+													{post.publication_date}
+												</div>
+												<span style={{ paddingRight: "8px" }}>•</span>
+												{post.tags?.slice(0, 2).map((tag) => {
+													return (
+														<>
+															<div className="postTag">{tag.label}</div>
+														</>
+													);
+												})}
+												<label style={{marginLeft: "auto"}} for="approval">Approved </label>
+												<input
+													type="checkbox"
+													id={`approval-${post.id}`}
+													name="approval"
+													defaultChecked={post.approved ? "true" : ""}
+													onChange={() => {
+														manageApproval(post);
+													}}
+												/>
+											</div>
 										</div>
-										<Link to={`/posts/${post.id}`}>{post.title}</Link>
-										<div>Category: {post.category.label}</div>
-										<div>
-											<label for="approval">Approved </label>
-											<input
-												type="checkbox"
-												id={`approval-${post.id}`}
-												name="approval"
-												defaultChecked={post.approved ? "true" : ""}
-												onChange={() => {
-													manageApproval(post);
-												}}
-											/>
+										<div className="postRight">
+											<img className="postImage" src={post.image_url} />
 										</div>
 									</article>
 								) : post.approved ? (
@@ -112,7 +133,9 @@ export const PostList = (props) => {
 												})}
 											</div>
 										</div>
-                    <div className="postRight"><img className="postImage" src={post.image_url}/></div>
+										<div className="postRight">
+											<img className="postImage" src={post.image_url} />
+										</div>
 									</article>
 								) : (
 									""

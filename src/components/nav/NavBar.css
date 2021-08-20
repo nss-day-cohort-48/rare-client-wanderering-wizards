@@ -36,6 +36,14 @@
 	letter-spacing: 5px;
 	margin-left: auto;
 }
+.navbar__create {
+	align-self: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	letter-spacing: 5px;
+}
 
 .navbar__link {
 	font-size: .8rem;
