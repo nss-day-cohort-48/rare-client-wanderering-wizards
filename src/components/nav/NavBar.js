@@ -67,6 +67,7 @@ export const NavBar = () => {
 	return (
 		<>
 			<ul className="navbar">
+				<div className="navSpace"></div>
 				<li className="">
 					<Link to="/">
 						<img className="navbar__logo" src={Logo} />
@@ -117,6 +118,7 @@ export const NavBar = () => {
 						}}
 					/>
 				</Link>
+				<div className="navSpace"></div>
 			</ul>
 			{menuActive ? showMenu() : ""}
 		</>
