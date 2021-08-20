@@ -42,7 +42,8 @@ export const PostDetails = () => {
 				<div>{post.content}</div>
 				<div>Category: {post.category?.label}</div>
 				<div>
-					Author: {post.user?.first_name} {post.user?.last_name}
+        {/* <img src={post.user.author?.profile_image_url} />{" "}
+											{post.user.first_name} {post.user.last_name} */}
 				</div>
 				{
                 post.tags?.map(tag => {

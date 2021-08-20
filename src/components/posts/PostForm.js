@@ -25,7 +25,7 @@ export const PostForm = () => {
 
 	const createPostImageString = (event) => {
 		getBase64(event.target.files[0], (base64ImageString) => {
-				console.log("Base64 of file is", base64ImageString);
+				// console.log("Base64 of file is", base64ImageString);
 
 				// Update a component state variable to the value of base64ImageString
 				setCurrentPicture(base64ImageString)
@@ -74,7 +74,7 @@ export const PostForm = () => {
 				content: post.content,
 				approved: 0,
 				tags: postTags,
-			}).then(() => history.push("/posts"));
+			}).then(() => history.push("/"));
 		} else {
 			window.alert("Please fill in all form fields before submitting post.");
 			setIsLoading(false);
@@ -85,7 +85,7 @@ export const PostForm = () => {
 		<>
 			<h1 className="goldenRodText center">New Post</h1>
 
-			<form className="flex post">
+			<form className="">
 				<fieldset>
 					<div className="center posts  blueText">
 						<label htmlFor="category">Category:</label>

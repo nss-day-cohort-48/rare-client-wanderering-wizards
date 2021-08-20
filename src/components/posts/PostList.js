@@ -7,7 +7,7 @@ export const PostList = (props) => {
 	const { posts, getPosts, managePostApproval } = useContext(PostContext);
 	const isAdmin = JSON.parse(localStorage.getItem("rare_admin"));
 
-	console.log(posts);
+	// console.log(posts);
 
 	const approvedPosts = posts.filter((post) => post.approved > 0);
 	const sortedPosts = approvedPosts.sort(

@@ -15,7 +15,7 @@ export const NavBar = () => {
 	useEffect(() => {
 		getAuthorById();
 	}, []);
-	console.log(author);
+	// console.log(author);
 
 	const showMenu = () => {
 		return (
