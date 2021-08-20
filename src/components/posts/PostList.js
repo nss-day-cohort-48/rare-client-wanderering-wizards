@@ -2,11 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { PostContext } from "./PostProvider";
 import { useHistory, Link } from "react-router-dom";
 import { CategoryContext } from "../category/CategoryProvider";
+import { AuthorContext } from "../authors/AuthorProvider";
+
 
 
 export const PostList = (props) => {
 	const { posts, getPosts, managePostApproval } = useContext(PostContext);
 	const {categories, getCategories} = useContext(CategoryContext)
+	const {authors, getAuthors} = useContext(AuthorContext)
 	const isAdmin = JSON.parse(localStorage.getItem("rare_admin"));
 
 	console.log(posts);
@@ -25,6 +28,7 @@ export const PostList = (props) => {
 	useEffect(() => {
 		getPosts();
 		getCategories()
+		getAuthors()
 	}, []);
 
 	const manageApproval = (post) => {
@@ -129,9 +133,32 @@ export const PostList = (props) => {
 					<article className="categorySection">
 					<div style={{marginBottom: "1.5rem", fontSize: ".8rem", fontWeight: "bolder"}}>RECOMMENDED TOPICS</div>
 					<div className="recCats">
-						{categories.map((category) => {
+						{categories?.slice(0, 12).map((category) => {
 							return (
 								<div className="category">{category.label}</div>
+							)
+						})}
+					</div>
+					</article>
+					<article className="followSection">
+					<div style={{marginBottom: "1.5rem", fontSize: ".8rem", fontWeight: "bolder"}}>WHO TO FOLLOW</div>
+					<div className="recCats">
+						{authors?.slice(4, 10).map((author) => {
+							return (
+								<div className="author">
+									<div>
+									<img className="postPI" style={{maxHeight: "3.5rem"}} src={author.profile_image_url}></img>
+									</div>
+									<div className="authorDetails">
+									<strong>{author.user.first_name} {author.user.last_name}</strong>
+									<div className="authorBio">{author.bio}</div>
+									</div>
+									<div className="followButton">
+										<div className="follow">
+										Follow
+										</div>
+									</div>
+									</div>
 							)
 						})}
 					</div>

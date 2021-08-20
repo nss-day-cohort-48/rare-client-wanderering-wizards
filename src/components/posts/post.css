@@ -42,6 +42,36 @@
     border-bottom: 1px solid rgba(230, 230, 230, 1);
 }
 
+.followSection {
+    margin-top: 2rem;
+    max-width: 20rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+
+.followButton {
+    color: black;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.follow {
+    border: black solid 1px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    margin-left: 2rem;
+}
+
+.author {
+    display: flex;
+}
+
+.authorBio {
+    font-size: .75rem;
+}
+
 .postPI {
     max-height: 2rem;
     border-radius: 50%;
