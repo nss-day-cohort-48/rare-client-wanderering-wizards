@@ -4,13 +4,16 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { AuthorProvider } from "./authors/AuthorProvider"
 
 export const Rare = () => (
     <>
         <Route render={() => {
             if (localStorage.getItem("rare_user_id")) {
                 return <>
+                  <AuthorProvider>
                     <NavBar />
+                  </AuthorProvider>
                     <ApplicationViews />
                 </>
             } else {

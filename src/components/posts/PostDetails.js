@@ -33,6 +33,9 @@ export const PostDetails = () => {
 
 	return (
 		<>
+    <button onClick={() => {
+      history.goBack([-1])
+    }}>Back to All Posts</button>
 			<div>
 				<h1>{post.title}</h1>
 				<div>{post.publication_date}</div>

@@ -1,6 +1,75 @@
 .flex {
+	display: flex;
+	margin: 5px;
+	
+}
+
+.plContainer {
+	display: flex;
+}
+
+.plLeft {
+	width: 65%;
+}
+
+.plMiddle {
+	border-right: 1px solid rgba(230, 230, 230, 1);
+	margin-right: 40px;
+	padding-right: 40px;
+	min-height: 100vh;
+}
+
+.plRight {
+	width: 35%;
+}
+
+.postPI {
+	max-height: 2rem;
+	border-radius: 50%;
+	padding-left: 0;
+	align-self: center;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	letter-spacing: 5px;
+	margin-right: 10px;
+}
+
+.postAuthorDiv {
+	display: flex;
+	align-items: center;
+	font-size: 0.8rem;
+}
+
+.postTitle {
+	font-size: 23px;
+}
+
+.postDateTag {
+	display: flex;
+}
+
+.postTag {
+	background-color: rgba(242, 242, 242, 1);
+	border-radius: 100px;
+	padding: 2px 8px;
+}
+.postPubDate {
+	padding: 2px 8px;
+}
+
+.postLeft {
+	display: flex;
+	margin: 5px;
+	flex-flow: wrap column;
+  flex-basis: 67%;
+
+}
+.postRight {
+    flex-basis: 33%;
     display: flex;
-    border: 2px solid goldenrod;
-    margin: 5px;
-    flex-flow: wrap column
+    justify-content: center
+}
+.postImage {
+  align-self: center;
+    max-height: 9rem;
 }
