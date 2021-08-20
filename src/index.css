@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 /*Typography
 --------------------------------------------------------------*/
 
@@ -10,8 +11,9 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: "Comfortaa", Arial, sans-serif;
+	color: #4e4f50;
+	font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 400;
 	font-size: 1rem;
 	line-height: 1.5;
 	padding: 0;
@@ -24,7 +26,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Patua One", serif;
+	font-family: "Montserrat", serif;
+  font-weight: 700;
 	letter-spacing: 2px;
 }
 
@@ -35,6 +38,9 @@ code {
 
 a {
 	text-decoration: none;
+}
+a:visited {
+  color: black;
 }
 
 ul {

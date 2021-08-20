@@ -28,9 +28,22 @@ export const AuthorProvider = (props) => {
 		.then(setAuthor)
 	};
 
+  const getAuthorById = () => {
+		return (
+			fetch(`http://localhost:8000/authors/getAuthor`,
+			{
+				headers: {
+					Authorization: `Token ${localStorage.getItem("rare_user_id")}`,
+				},
+			}
+		)).then((res) => res.json())
+    .then(setAuthor)
+	};
+
+
   return (
 		<AuthorContext.Provider
-			value={{authors, getAuthors, author, getAuthorDetails
+			value={{authors, getAuthors, author, getAuthorDetails, getAuthorById
 			}}
 		>
 			{props.children}
