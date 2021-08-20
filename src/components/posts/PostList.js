@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PostContext } from "./PostProvider";
 import { useHistory, Link } from "react-router-dom";
-import { AuthorContext } from "../authors/AuthorProvider";
+import { CategoryContext } from "../category/CategoryProvider";
+
 
 export const PostList = (props) => {
 	const { posts, getPosts, managePostApproval } = useContext(PostContext);
+	const {categories, getCategories} = useContext(CategoryContext)
 	const isAdmin = JSON.parse(localStorage.getItem("rare_admin"));
 
 	console.log(posts);
@@ -22,6 +24,7 @@ export const PostList = (props) => {
 
 	useEffect(() => {
 		getPosts();
+		getCategories()
 	}, []);
 
 	const manageApproval = (post) => {
@@ -122,7 +125,18 @@ export const PostList = (props) => {
 					})}
 				</div>
 				<div className="plMiddle"></div>
-				<div className="plRight"></div>
+				<div className="plRight">
+					<article className="categorySection">
+					<div style={{marginBottom: "1.5rem", fontSize: ".8rem", fontWeight: "bolder"}}>RECOMMENDED TOPICS</div>
+					<div className="recCats">
+						{categories.map((category) => {
+							return (
+								<div className="category">{category.label}</div>
+							)
+						})}
+					</div>
+					</article>
+				</div>
 			</div>
 		</>
 	);
