@@ -15,7 +15,7 @@ export const NavBar = () => {
 	useEffect(() => {
 		getAuthorById();
 	}, []);
-	// console.log(author);
+	console.log(author);
 
 	const showMenu = () => {
 		return (
@@ -25,7 +25,7 @@ export const NavBar = () => {
           <div className="menuTop">
         <Link>
 					<img
-						style={{ maxHeight: "3rem", borderRadius: "50%" }}
+						// style={{ maxHeight: "3rem", borderRadius: "50%" }}
 						src={author.profile_image_url}
 						className="menuPIU"
 						onClick={() => {
@@ -36,9 +36,6 @@ export const NavBar = () => {
           <li>{author.user?.username}</li>
           </div>
           <li className="menuSepLI"><div className="menuSep"></div></li>
-          <li>
-            <Link to="/Posts/create" className="navbar__link">Write a Story</Link>
-          </li>
 					<li>
 						<Link className="navbar__link" to="/myposts">
 							My Posts
@@ -67,7 +64,6 @@ export const NavBar = () => {
 	return (
 		<>
 			<ul className="navbar">
-				<div className="navSpace"></div>
 				<li className="">
 					<Link to="/">
 						<img className="navbar__logo" src={Logo} />
@@ -103,12 +99,11 @@ export const NavBar = () => {
 						</li>
 					</>
 				)}{" "}
-        
 				<Link>
 					<img
 						style={{ maxHeight: "3rem", borderRadius: "50%" }}
 						src={author.profile_image_url}
-						className="navbar__item"
+						className="navbar__item menuProfileImage"
 						onClick={() => {
 							if (menuActive) {
 								setMenuActive(false);
@@ -118,7 +113,6 @@ export const NavBar = () => {
 						}}
 					/>
 				</Link>
-				<div className="navSpace"></div>
 			</ul>
 			{menuActive ? showMenu() : ""}
 		</>

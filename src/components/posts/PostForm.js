@@ -74,7 +74,7 @@ export const PostForm = () => {
 				content: post.content,
 				approved: 0,
 				tags: postTags,
-			}).then(() => history.push("/"));
+			}).then(() => history.push("/myposts"));
 		} else {
 			window.alert("Please fill in all form fields before submitting post.");
 			setIsLoading(false);
