@@ -7,6 +7,7 @@ export const PostDetails = () => {
 	const { post, getPostsDetails, deletePost } = useContext(PostContext);
 
 	const userId = parseInt(localStorage.getItem("rare_user_id"));
+	console.log(userId)
 
 	const { postId } = useParams();
 	const history = useHistory();
@@ -51,7 +52,7 @@ export const PostDetails = () => {
                     )
                 })
             }
-				{userId === post.user_id ? renderDeleteButton() : ""}
+				{renderDeleteButton()}
 
 				<button onClick={() => {
           history.push(`/posts/comments/${postId}`)
