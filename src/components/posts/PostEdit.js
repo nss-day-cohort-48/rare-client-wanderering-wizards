@@ -39,7 +39,7 @@ export const PostEdit = () => {
     // state is undefined
     useEffect(() => {
         getPost(postId).then(post => {
-          console.log(post)
+          // console.log(post)
           setPost({
             id: postId,
             category_id: parseInt(post.category.id),
@@ -86,7 +86,7 @@ export const PostEdit = () => {
       <>
       <h1 className="goldenRodText center">Edit Post</h1>
 
-        <form className="flex post">
+        <form className="">
         <fieldset>
           <div className="center posts  blueText">
             <label htmlFor="category">Category:</label>

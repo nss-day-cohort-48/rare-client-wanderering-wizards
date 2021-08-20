@@ -7,7 +7,7 @@ export const PostDetails = () => {
 	const { post, getPostsDetails } = useContext(PostContext);
 
 	const userId = parseInt(localStorage.getItem("rare_user_id"));
-	console.log(userId)
+	// console.log(userId)
 
 	const { postId } = useParams();
 	const history = useHistory();
@@ -16,38 +16,45 @@ export const PostDetails = () => {
 		getPostsDetails(postId);
 	}, []);
 
-
-
 	return (
 		<>
-    <button onClick={() => {
-      history.goBack([-1])
-    }}>Back to All Posts</button>
-			<div>
-				<h1>{post.title}</h1>
-				<div>{post.publication_date}</div>
-				<img src={post.image_url}></img>
-				<div>{post.content}</div>
-				<div>Category: {post.category?.label}</div>
-				<div>
-					Author: {post.user?.first_name} {post.user?.last_name}
+        <div style={{textAlign: "center", marginBottom: "3rem"}}>
+				<button 
+					onClick={() => {
+						history.goBack([-1]);
+					}}
+				>
+					Back to All Posts
+				</button></div>
+			<div className="postDetailContainer">
+				<h1 className="postDetailTitle">{post.title}</h1>
+				<div className="postDetailTitle">{post.publication_date}</div>
+				<div className="postDetailTitle">
+					<img src={post.image_url}></img>
 				</div>
-				{
-                post.tags?.map(tag => {
-                    return (
-											<>
-                        <div>Tag: {tag.label}</div>
-											</>
-												
-                    )
-                })
-            }
+				<div className="postDetailTitle">{post.content}</div>
+				<div className="postDetailBody">
+					{/* <img src={post.user.author?.profile_image_url} />{" "}
+											{post.user.first_name} {post.user.last_name} */}
+				</div>
 
-				<button onClick={() => {
-          history.push(`/posts/comments/${postId}`)
-        }}>View Comments</button>
+				<div>Category: {post.category?.label}</div>
+				{post.tags?.map((tag) => {
+					return (
+						<>
+							<div>Tag: {tag.label}</div>
+						</>
+					);
+				})}
+
+				<button
+					onClick={() => {
+						history.push(`/posts/comments/${postId}`);
+					}}
+				>
+					View Comments
+				</button>
 			</div>
 		</>
 	);
 };
-
