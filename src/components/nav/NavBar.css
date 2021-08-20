@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap");
 
 /* .navbar {
     display: flex;
@@ -16,62 +16,74 @@
     max-height: 3.5rem;
 } */
 
- .navbar {
-     display: flex;
-     max-width: 90%;
-     margin: auto;
- }
-
- .navbar__logo {
-    max-height: 3.5rem;
-    cursor: pointer;
-
-} 
-
-.navbar__item {
-    align-self: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: .3rem;
-    padding-bottom: .3rem;
-    letter-spacing: 5px;
-    margin-left: auto;
+.navbar {
+	display: flex;
+	max-width: 90%;
+	margin: auto;
 }
 
-.navbar__text {
-    border: none;
-    font-family: "Oswald";
-    font-size: inherit;
-    color: inherit;
-    background: none;
-    cursor: pointer;
-    /* padding: 0.35rem 1.5rem; */
-    box-shadow: 0.25rem 0.25rem 0.7rem #9c9c9c;
-    display: inline-block;
-    margin: 0.5rem 0.75rem;
-    /* text-transform: uppercase; */
-    letter-spacing: 1px;
-    font-weight: 700;
-    outline: none;
-    position: relative;
-    transition: all 0.3s;
+.navbar__logo {
+	max-height: 3.5rem;
+	cursor: pointer;
+}
+
+.navbar__item {
+	align-self: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	letter-spacing: 5px;
+	margin-left: auto;
+}
+
+.navbar__link {
+	font-size: .8rem;
 }
 
 .navbar__text:hover {
-    background: #cacaca;
+	background: #cacaca;
 	color: rgb(255, 255, 255);
 }
 
 .logoutButton {
-  margin-left: auto;
+	margin-left: auto;
 }
 
 #menu {
-  position: fixed;
-  right: 22px;
-  top: 15%;
-  width: 8em;
-  margin-top: -2.5em;
-  border: 2px solid black;
-  padding: 1rem;
+	position: fixed;
+	right: 22px;
+	top: 15%;
+	width: 12.5em;
+	margin-top: -2.5em;
+	border: 2px solid #76767624;
+	padding: 1rem;
+	box-shadow: 16px 18px 0px 0px rgb(95 94 94 / 0%),
+		4px 4px 6px 0 rgb(125 124 124 / 50%);
+	background-color: rgb(255 255 253);
+	padding: 8px 20px;
+}
+
+.menuSep {
+	border-top: 1px solid rgba(230, 230, 230, 1);
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.menuSepLI {
+	padding-top: 0.5rem;
+}
+
+.menuPIU {
+	padding-left: 0;
+	align-self: center;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	letter-spacing: 5px;
+	margin-left: auto;
+}
+
+.menuTop {
+  display: flex;
+  align-items: center;
 }

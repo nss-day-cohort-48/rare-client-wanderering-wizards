@@ -20,8 +20,23 @@ export const NavBar = () => {
 	const showMenu = () => {
 		return (
 			<>
+  
 				<ul id="menu">
-					<li className="">
+          <div className="menuTop">
+        <Link>
+					<img
+						style={{ maxHeight: "3rem", borderRadius: "50%" }}
+						src={author.profile_image_url}
+						className="menuPIU"
+						onClick={() => {
+							history.push(`/authors/${author.id}`)
+						}}
+					/>
+				</Link>
+          <li>{author.user?.username}</li>
+          </div>
+          <li className="menuSepLI"><div className="menuSep"></div></li>
+					<li>
 						<Link className="navbar__link" to="/myposts">
 							My Posts
 						</Link>
