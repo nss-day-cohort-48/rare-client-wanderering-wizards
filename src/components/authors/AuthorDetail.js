@@ -20,6 +20,7 @@ export const AuthorDetail = () => {
 
   return (
     <>
+    <div className="authorParent">
     <div className="flexAuthor">
       <img src={author.profile_image_url} alt="ProfilePic" className="authorImage"/>
         {/* <h1>{author.bio}</h1> */}
@@ -36,7 +37,10 @@ export const AuthorDetail = () => {
           <Link to={"/myposts"} className="totalPostsLink">{authorTotalPosts} Total Posts</Link>
         </div>
     </div>
+    </div>
+    <div className="flexAuthorBio">
     <div>{author.bio}</div>
+    </div>
     </>
   )
 }
