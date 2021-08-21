@@ -270,3 +270,53 @@
 	white-space: nowrap;
 	width: auto;
 }
+.myPostSubmitButton {
+	clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 5px 5rem 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+
+.myPostSubmitButton:hover {
+	background-color: rgb(105, 105, 105);
+}
+
+.myPostEditButton {
+  clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+.myPostEditButton:hover {
+	background-color: rgb(105, 105, 105);
+}
