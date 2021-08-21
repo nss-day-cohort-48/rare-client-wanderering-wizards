@@ -36,6 +36,9 @@ export const NavBar = () => {
           <li>{author.user?.username}</li>
           </div>
           <li className="menuSepLI"><div className="menuSep"></div></li>
+          <li>
+            <Link to="/Posts/create" className="navbar__link">Write a Story</Link>
+          </li>
 					<li>
 						<Link className="navbar__link" to="/myposts">
 							My Posts
