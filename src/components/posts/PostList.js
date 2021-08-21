@@ -178,10 +178,10 @@ export const PostList = (props) => {
 									</div>
 									<div className="followButton">
 										<div className="follow">
-										Follow
+										<Link className="followButtonLink" to={`/authors/${author.id}`}>Follow</Link>
 										</div>
 									</div>
-									</div>
+								</div>
 							)
 						})}
 					</div>
