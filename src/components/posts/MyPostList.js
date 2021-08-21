@@ -14,7 +14,7 @@ export const MyPostList = (props) => {
   const editPostButton = (post_id) => {
       return (
         <button
-          className="post blueText"
+        className="btn btn-1 btn-sep icon-send"
           id={`post--${post_id}`}
           onClick={(event) => {
             event.preventDefault();
@@ -47,26 +47,66 @@ export const MyPostList = (props) => {
   return (
     <>
       <div>
-        <h1>My Posts</h1>
+        <div>
         {posts.map((post) => {
           return (
             <>
-              <article className="flex">
-                <Link to={`/posts/${post.id}`}>{post.title}</Link>
-                <div>{post.category.label}</div>
-                <div>
-                  {post.user.first_name} {post.user.last_name}
-                </div>
-                {post.is_post_author?editPostButton(post.id):""}
-                <button onClick={() => {
-					            deletePost(post.id).then(() => {
-						          history.push("/myposts")
-                      getPostsByUserId();
-					      });}}>DELETE POST</button>
-              </article>
+              <article className="flexMyPosts">
+										<div className="postLeft">
+											<div className="postAuthorDiv">
+												<img
+													className="postPI"
+													src={post.user.author?.profile_image_url}
+												/>
+												<strong>
+													{post.user.first_name} {post.user.last_name}
+												</strong>
+												<p style={{ margin: "0 3px 0 3px" }}>in</p>
+												<strong>{post.category.label}</strong>
+											</div>
+											<strong>
+												<Link className="postTitle" to={`/posts/${post.id}`}>
+													{post.title}
+												</Link>
+											</strong>
+											<div>{post.content.slice(0, 50).trim()}...</div>
+											<div className="postDateTag">
+												<div className="postPubDate">
+													{post.publication_date}
+												</div>
+												<span style={{ paddingRight: "8px" }}>•</span>
+												{post.tags?.slice(0, 2).map((tag) => {
+													return (
+														<>
+															<div className="postTag">{tag.label}</div>
+														</>
+													);
+												})}
+											</div>
+										</div>
+										<div className="postRight">
+											<img className="postImage" src={post.image_url} />
+										</div>
+									</article>
+                  <div className="myPostsButtons">
+                  {editPostButton()}
+                  <button className="btn btn-1 btn-sep icon-send"
+				onClick={() => {
+					deletePost(post.id).then(() => {
+						history.push("/myposts");
+					});
+				}}
+			>
+				DELETE POST
+			</button>
+                  
+                  </div>
+                  
             </>
           );
         })}
+
+        </div>
       </div>
     </>
   );
