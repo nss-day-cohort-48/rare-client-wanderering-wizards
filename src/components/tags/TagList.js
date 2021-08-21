@@ -12,9 +12,8 @@ export const TagList = () => {
     const [userInput, setUserInput] = useState("");
     const [selectedTag, setSelectedTag] = useState()
     const history = useHistory()
-
     const alphabeticalTags = tags.sort((tag1, tag2) => tag1.label.localeCompare(tag2.label))
-
+    const isAdmin = JSON.parse(localStorage.getItem("rare_admin"))
     useEffect(() => {
         getTags()
     }, [])
@@ -25,7 +24,7 @@ export const TagList = () => {
 
     const renderDeleteButton = (tagId) => {
         return (
-            <button onClick={() => {     
+            <button className="button" onClick={() => {     
                 setSelectedTag(tagId)
                 setDeleteButtonPressed(true)
             }}>
@@ -36,7 +35,7 @@ export const TagList = () => {
     
     const renderUpdateButton = (tagObj) => {
         return (
-            <button onClick={() => {     
+            <button className="button" onClick={() => {     
                 setSelectedTag(tagObj)
                 setUpdateButtonPressed(true)
             }}>
@@ -88,20 +87,23 @@ export const TagList = () => {
 
     return (
         <div>
-            <button onClick={() => {
+            <div className="tagCreate">
+            <button className="tagCreateButton" onClick={() => {
                 history.push("/tags/create")
             }
             }>Create a tag?</button>
-            <h1>tags</h1>
+            </div>
             {deleteButtonPressed ? deletePopup() : ""}
             {updateButtonPressed ? updatePopup() : ""}
+            <div className="tag-list">
             {
                 alphabeticalTags.map(tag => {
                     return (
-                        <div>{renderUpdateButton(tag)} {renderDeleteButton(tag.id)} {tag.label}</div>
+                        <div className="tag-page-tag" >{isAdmin ? renderUpdateButton(tag): ""} {isAdmin ? renderDeleteButton(tag.id): ""} {tag.label}</div>
                     )
                 })
             }
+            </div>
         </div>
     )
 }

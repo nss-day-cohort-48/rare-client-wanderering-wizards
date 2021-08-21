@@ -93,7 +93,8 @@
     padding-bottom: 0.3rem;
     letter-spacing: 5px;
     margin-left: auto;
-    height: 3rem;width: 3rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -104,7 +105,8 @@
 }
 
 .menuProfileImage {
-    height: 3rem;width: 3rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50%;
     object-fit: cover;
 }
