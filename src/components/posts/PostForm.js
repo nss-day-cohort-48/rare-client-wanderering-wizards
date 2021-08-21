@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { PostContext } from "./PostProvider";
 import { CategoryContext } from "../category/CategoryProvider";
 import { TagContext } from "../tags/TagProvider";
@@ -8,7 +8,7 @@ export const PostForm = () => {
 	const { createPost } = useContext(PostContext);
 	const { categories, getCategories } = useContext(CategoryContext);
 	const { tags, getTags } = useContext(TagContext);
-	const [ currentPicture, setCurrentPicture ] = useState({})
+	const [currentPicture, setCurrentPicture] = useState({});
 
 	const [post, setPosts] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
@@ -19,18 +19,18 @@ export const PostForm = () => {
 
 	const getBase64 = (file, callback) => {
 		const reader = new FileReader();
-		reader.addEventListener('load', () => callback(reader.result));
+		reader.addEventListener("load", () => callback(reader.result));
 		reader.readAsDataURL(file);
-}
+	};
 
 	const createPostImageString = (event) => {
 		getBase64(event.target.files[0], (base64ImageString) => {
-				// console.log("Base64 of file is", base64ImageString);
+			// console.log("Base64 of file is", base64ImageString);
 
-				// Update a component state variable to the value of base64ImageString
-				setCurrentPicture(base64ImageString)
+			// Update a component state variable to the value of base64ImageString
+			setCurrentPicture(base64ImageString);
 		});
-}
+	};
 
 	const handleControlledInputChange = (event) => {
 		const newPost = { ...post };
@@ -83,105 +83,96 @@ export const PostForm = () => {
 
 	return (
 		<>
-			<h1 className="goldenRodText center">New Post</h1>
+			<form className="postFormContainer">
+				<div className="postFormBox">
+					<fieldset className="postFormSet">
+						<input
+							value={post.title}
+							placeholder="Post Title"
+							type="title"
+							id="title"
+							name="title"
+							className="postFormField"
+							onChange={handleControlledInputChange}
+						/>
+					</fieldset>
 
-			<form className="">
-				<fieldset>
-					<div className="center posts  blueText">
-						<label htmlFor="category">Category:</label>
+					<fieldset className="postFormSet">
+						<textarea
+							value={post.content}
+							placeholder="Content"
+							type="content"
+							id="content"
+							name="content"
+							className="postFormField"
+							onChange={handleControlledInputChange}
+						/>
+					</fieldset>
+					<fieldset className="postFormSet">
 						<select
 							value={post.category_id}
 							name="category_id"
 							id="category_id"
-							className="center  post blueText"
+							className="postSelectBox"
 							onChange={handleControlledInputChange}
 						>
-							<option value="0">Select Category </option>
+							<option
+								style={{ fontStyle: "italic", fontWeight: "600" }}
+								value="0"
+							>
+								Select Category{" "}
+							</option>
 							{categories.map((category) => (
 								<option key={category.id} value={category.id}>
 									{category.label}
 								</option>
 							))}
 						</select>
-					</div>
-				</fieldset>
-				<fieldset>
-					<div className="center posts  blueText">
-						<label htmlFor="title">Post Title:</label>
-						<input
-							value={post.title}
-							type="title"
-							id="title"
-							name="title"
-							className="center  post blueText"
-							onChange={handleControlledInputChange}
-						/>
-					</div>
-				</fieldset>
-				<fieldset>
-				<input type="file" id="image_url" onChange={createPostImageString} />
-				</fieldset>
-				{/* <fieldset>
-					<div className="center posts  blueText">
-						<label htmlFor="image_url">Image Url:</label>
-						<input
-							value={post.image_url}
-							type="image_url"
-							id="image_url"
-							name="image_url"
-							className="center  post blueText"
-							onChange={handleControlledInputChange}
-						/>
-					</div>
-				</fieldset> */}
-				<fieldset>
-					<div className="center posts  blueText">
-						<label htmlFor="content">Content:</label>
-						<textarea
-							value={post.content}
-							type="content"
-							id="content"
-							name="content"
-							className="center  post blueText"
-							onChange={handleControlledInputChange}
-						/>
-					</div>
-				</fieldset>
-				<fieldset>
-					<div className="center posts  blueText">
+					</fieldset>
+					<fieldset className="postTags postFormSet">
 						{tags.map((tag) => (
 							<>
-								<input
-									type="checkbox"
-									key={tag.id}
-									value={tag.id}
-									onClick={(event) => {
-										const copyPostTags = [...postTags];
-										const idPosition = copyPostTags.indexOf(tag);
-										if (idPosition >= 0) {
-											copyPostTags.splice(idPosition, 1);
-										} else {
-											copyPostTags.push(tag.id);
-										}
-										setPostTags(copyPostTags);
-									}}
-								/>
-								<div>{tag.label}</div>
+								<div className="tagDiv">
+									<input
+										type="checkbox"
+										className=""
+										key={tag.id}
+										value={tag.id}
+										onClick={(event) => {
+											const copyPostTags = [...postTags];
+											const idPosition = copyPostTags.indexOf(tag);
+											if (idPosition >= 0) {
+												copyPostTags.splice(idPosition, 1);
+											} else {
+												copyPostTags.push(tag.id);
+											}
+											setPostTags(copyPostTags);
+										}}
+									/>
+									<div>{tag.label}</div>
+								</div>
 							</>
 						))}
-					</div>
-				</fieldset>
-
-				<button
-					className="center post blueText"
-					disabled={isLoading}
-					onClick={(event) => {
-						setIsLoading(true);
-						event.preventDefault();
-					}}
-				>
-					Save Post
-				</button>
+					</fieldset>
+					<fieldset className="postUpload postFormSet ">
+						<input
+							type="file"
+							id="image_url"
+							className="postFormField"
+							onChange={createPostImageString}
+						/>
+					</fieldset>
+					<button
+						className="postSubmitButton"
+						disabled={isLoading}
+						onClick={(event) => {
+							setIsLoading(true);
+							event.preventDefault();
+						}}
+					>
+						Save Post
+					</button>
+				</div>
 			</form>
 		</>
 	);
