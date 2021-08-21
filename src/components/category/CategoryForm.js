@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useEffect, useState, useParams } from "react"
 import { CategoryContext } from "./CategoryProvider"
 import { useHistory } from "react-router-dom"
-
+import "../posts/post.css"
 export const CategoryForm = () => {
     const {addCategory} = useContext(CategoryContext)
 
@@ -29,21 +29,24 @@ export const CategoryForm = () => {
     }, [category])
 
     return (
-        <form>
-            <h2>Create a new category</h2>
-            <fieldset>
+        <form className="postFormContainer">
+            <div className="postFormBox">
+            <fieldset className="postFormSet">
                 <div>
-                    <input type="text" id="label" name="label" required autoFocus placeholder="add text"
+                    <input className="postFormField" type="text" id="label" name="label" required autoFocus placeholder="Type Category Here"
                     onChange={handleControlledInputChange}/>
                 </div>
             </fieldset>
             <div>
-                <button disabled={isLoading}
+                <button 
+                className="postSubmitButton"
+                disabled={isLoading}
                 onClick={event => {
                     event.preventDefault()
                     handleSaveCategory()
                     setCategory("")
                 }}>Create Category</button>
+            </div>
             </div>
         </form>
     )

@@ -9,110 +9,111 @@
 }
 
 .plContainer {
-    display: flex;
+	display: flex;
 }
 
 .plLeft {
-    width: 65%;
+	width: 65%;
 }
 
 .plMiddle {
-    border-right: 1px solid rgba(230, 230, 230, 1);
-    margin-right: 40px;
-    padding-right: 40px;
-    min-height: 100vh;
+	border-right: 1px solid rgba(230, 230, 230, 1);
+	margin-right: 40px;
+	padding-right: 40px;
+	min-height: 100vh;
 }
 
 .plRight {
-    width: 35%;
+	width: 35%;
 }
 
 .recCats {
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .category {
-    background-color: rgba(242, 242, 242, 1);
-    border-radius: 100px;
-    padding: 6px 12px;
-    margin: 5px;
-    font-size: .8rem;
-    color: black;
+	background-color: rgba(242, 242, 242, 1);
+	border-radius: 100px;
+	padding: 6px 12px;
+	margin: 5px;
+	font-size: 0.8rem;
+	color: black;
 }
 
 .categorySection {
-    max-width: 20rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(230, 230, 230, 1);
+	max-width: 20rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid rgba(230, 230, 230, 1);
 }
 
 .followSection {
-    margin-top: 2rem;
-    max-width: 20rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(230, 230, 230, 1);
+	margin-top: 2rem;
+	max-width: 20rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid rgba(230, 230, 230, 1);
 }
 
 .followButton {
-    color: black;
-    font-size: .8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	color: black;
+	font-size: 0.8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .follow {
-    border: black solid 1px;
-    padding: 5px 10px;
-    border-radius: 100px;
-    margin-left: 2rem;
+	border: black solid 1px;
+	padding: 5px 10px;
+	border-radius: 100px;
+	margin-left: 2rem;
 }
 
 .author {
-    display: flex;
+	display: flex;
 }
 
 .authorBio {
-    font-size: .75rem;
+	font-size: 0.75rem;
 }
 
 .postPI {
-    /* max-height: 2rem; */
-    border-radius: 50%;
-    padding-left: 0;
-    align-self: center;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    letter-spacing: 5px;
-    margin-right: 10px;
-    height: 3rem;width: 3rem;
-    border-radius: 50%;
-    object-fit: cover;
+	/* max-height: 2rem; */
+	border-radius: 50%;
+	padding-left: 0;
+	align-self: center;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	letter-spacing: 5px;
+	margin-right: 10px;
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .postAuthorDiv {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	font-size: 0.8rem;
 }
 
 .postTitle {
-    font-size: 23px;
+	font-size: 23px;
 }
 
 .postDateTag {
-    display: flex;
+	display: flex;
 }
 
 .postTag {
-    background-color: rgba(242, 242, 242, 1);
-    border-radius: 100px;
-    padding: 2px 8px;
+	background-color: rgba(242, 242, 242, 1);
+	border-radius: 100px;
+	padding: 2px 8px;
 }
 
 .postPubDate {
-    padding: 2px 8px;
+	padding: 2px 8px;
 }
 
 .postLeft {
@@ -131,8 +132,8 @@
 .postImage {
 	align-self: center;
 	height: 9rem;
-    width: 9rem;
-    object-fit: cover;
+	width: 9rem;
+	object-fit: cover;
 }
 
 .postDetailTitle {
@@ -140,39 +141,182 @@
 }
 
 .postDetailContainer {
-  max-width: 700px;
-  margin: auto;
+	max-width: 700px;
+	margin: auto;
 }
 
 .myPostsHeader {
-    text-align: center;
+	text-align: center;
 }
 
 .myPosts {
-    width: 50%
+	width: 50%;
 }
 
 .myPostsContainer {
-    display:flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .flexMyPosts {
 	display: flex;
 	margin: 0 0 3em 0;
-	margin-left: auto; 
-    margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 	width: 85%;
 	max-width: 50%;
 	width: 800px;
 }
 
 .myPostsButtons {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 3em 0
+	display: flex;
+	justify-content: center;
+	margin: 0 0 3em 0;
 }
 
-/* .followButtonLink:hover {
-    background-color: grey;
-} */
+.postFormContainer {
+	max-width: 100%;
+	margin: auto;
+}
+.postFormSet {
+	clear: left;
+	padding-bottom: 0.5rem;
+	min-height: 50px;
+	margin: 0 2rem 0 2rem;
+	padding-inline-start: 0;
+  display: block;
+    /* margin-inline-start: 2px; */
+    /* margin-inline-end: 2px; */
+    /* padding-block-start: 0.35em; */
+    /* padding-inline-start: 0.75em; */
+    /* padding-inline-end: 0.75em; */
+    /* padding-block-end: 0.625em; */
+    /* min-inline-size: min-content; */
+    /* border-width: 2px; */
+    /* border-style: groove; */
+    /* border-color: threedface; */
+    /* border-image: initial; */
+}
+.postSubmitButton {
+	clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 5px 5rem 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+
+.postSubmitButton:hover {
+	background-color: rgb(105, 105, 105);
+}
+.postFormBox {
+	border-width: 3px;
+	max-width: 900px;
+	margin: auto;
+}
+.postFormField {
+	display: block;
+	width: 100%;
+	padding: 8px 0;
+  
+}
+.postSelectBox {
+  padding: 8px
+}
+.postUpload {
+  max-width: 400px;
+}
+.postTags {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.tagDiv {
+  margin-right: 1.5rem;
+}
+
+.chooseFileButton {
+  clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 5px 5rem 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+.myPostSubmitButton {
+	clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 5px 5rem 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+
+.myPostSubmitButton:hover {
+	background-color: rgb(105, 105, 105);
+}
+
+.myPostEditButton {
+  clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+.myPostEditButton:hover {
+	background-color: rgb(105, 105, 105);
+}

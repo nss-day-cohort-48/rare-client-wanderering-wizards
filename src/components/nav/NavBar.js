@@ -21,7 +21,9 @@ export const NavBar = () => {
 			<>
 				<ul id="menu">
           <div className="menuTop">
-        <Link>
+        <Link onClick={() => {
+              setMenuActive(false)
+            }}>
 					<img
 						// style={{ maxHeight: "3rem", borderRadius: "50%" }}
 						src={author.profile_image_url}
@@ -36,26 +38,36 @@ export const NavBar = () => {
           </div>
           <li className="menuSepLI"><div className="menuSep"></div></li>
           <li>
-            <Link to="/Posts/create" className="navbar__link">Write a Story</Link>
+            <Link to="/Posts/create" className="navbar__link" onClick={() => {
+              setMenuActive(false)
+            }}>Write a Story</Link>
           </li>
 					<li>
-						<Link className="navbar__link" to="/myposts">
+						<Link className="navbar__link" to="/myposts" onClick={() => {
+              setMenuActive(false)
+            }}>
 							My Posts
 						</Link>
 					</li>
 					<li className="">
-						<Link className="navbar__link" to="/categories">
+						<Link className="navbar__link" to="/categories" onClick={() => {
+              setMenuActive(false)
+            }}>
 							Categories
 						</Link>
 					</li>
 					<li className="">
-						<Link className="navbar__link" to="/tags">
+						<Link className="navbar__link" to="/tags" onClick={() => {
+              setMenuActive(false)
+            }}>
 							Tags
 						</Link>
 					</li>
-					{isAdmin ?
+          {isAdmin ?
 					(<li className="">
-						<Link className="navbar__link" to="/authors">
+						<Link className="navbar__link" to="/authors" onClick={() => {
+              setMenuActive(false)
+            }}>
 							User Manager
 						</Link>
 					</li>
@@ -72,7 +84,9 @@ export const NavBar = () => {
 			<ul className="navbar">
 			<div className="navSpace"></div>
 				<li className="">
-					<Link to="/">
+					<Link to="/" onClick={() => {
+              setMenuActive(false)
+            }}>
 						<img className="navbar__logo" src={Logo} />
 					</Link>
 				</li>
