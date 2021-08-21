@@ -166,7 +166,7 @@ export const PostList = (props) => {
 					<article className="followSection">
 					<div style={{marginBottom: "1.5rem", fontSize: ".8rem", fontWeight: "bolder"}}>WHO TO FOLLOW</div>
 					<div className="recCats">
-						{authors?.slice(1, 10).map((author) => {
+						{authors?.slice(1, 5).map((author) => {
 							return (
 								<div className="author">
 									<div>
@@ -174,7 +174,7 @@ export const PostList = (props) => {
 									</div>
 									<div className="authorDetails">
 									<strong>{author.user.first_name} {author.user.last_name}</strong>
-									<div className="authorBio">{author.bio}</div>
+									<div className="authorBio">{author.bio.slice(0, 40).trim()}...</div>
 									</div>
 									<div className="followButton">
 										<div className="follow">

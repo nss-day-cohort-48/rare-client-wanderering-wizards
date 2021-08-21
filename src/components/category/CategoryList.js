@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { CategoryContext } from "./CategoryProvider"
 import gear from "../../images/gear.png"
 import trash from "../../images/trash.png"
-
+import "./Category.css"
 export const CategoryList = () => {
     const {categories, getCategories, deleteCategory, updateCategory} = useContext(CategoryContext)
     const [deleteButtonPressed, setDeleteButtonPressed] = useState(false)
@@ -12,7 +12,7 @@ export const CategoryList = () => {
     const [selectedCategory, setSelectedCategory] = useState()
     const history = useHistory()
     const alphabeticalCategories = categories.sort((category1, category2) => category1.label.localeCompare(category2.label))
-
+    const isAdmin = JSON.parse(localStorage.getItem("rare_admin"))
     useEffect(() => {
         getCategories()
     }, [])
@@ -23,7 +23,7 @@ export const CategoryList = () => {
 
     const renderDeleteButton = (categoryId) => {
         return (
-            <button onClick={() => {     
+            <button className="button" onClick={() => {     
                 setSelectedCategory(categoryId)
                 setDeleteButtonPressed(true)
             }}>
@@ -34,7 +34,7 @@ export const CategoryList = () => {
 
     const renderUpdateButton = (categoryObj) => {
         return (
-            <button onClick={() => {     
+            <button className="button" onClick={() => {     
                 setSelectedCategory(categoryObj)
                 setUpdateButtonPressed(true)
             }}>
@@ -86,20 +86,23 @@ export const CategoryList = () => {
 
     return (
         <div>
-            <button onClick={() => {
+            <div className="catCreate">
+            <button className="catCreateButton" onClick={() => {
                 history.push("/categories/create")
             }
             }>Create a category?</button>
-            <h1>Categories</h1>
+            </div>
             {deleteButtonPressed ? deletePopup() : ""}
             {updateButtonPressed ? updatePopup() : ""}
+            <div className="cat-list">
             {
                 alphabeticalCategories.map(category => {
                     return (
-                        <div>{renderUpdateButton(category)} {renderDeleteButton(category.id)} {category.label}</div>
-                    )
-                })
-            }
+                        <div className="cat-page-cat">{isAdmin ? renderUpdateButton(category) : ""} {isAdmin ? renderDeleteButton(category.id): ""} {category.label}</div>
+                        )
+                    })
+                }
+           </div>
         </div>
     )
 }

@@ -8,19 +8,17 @@ import logoutDoor from "../../images/logout.png";
 
 export const NavBar = () => {
 	const history = useHistory();
-
+	const isAdmin = JSON.parse(localStorage.getItem("rare_admin"))
 	const { author, getAuthorById } = useContext(AuthorContext);
 	const [menuActive, setMenuActive] = useState(false);
 
 	useEffect(() => {
 		getAuthorById();
 	}, []);
-	console.log(author);
 
 	const showMenu = () => {
 		return (
 			<>
-  
 				<ul id="menu">
           <div className="menuTop">
         <Link onClick={() => {
@@ -54,23 +52,26 @@ export const NavBar = () => {
 						<Link className="navbar__link" to="/categories" onClick={() => {
               setMenuActive(false)
             }}>
-							Category Manager
+							Categories
 						</Link>
 					</li>
 					<li className="">
 						<Link className="navbar__link" to="/tags" onClick={() => {
               setMenuActive(false)
             }}>
-							Tag Manager
+							Tags
 						</Link>
 					</li>
-					<li className="">
+          {isAdmin ?
+					(<li className="">
 						<Link className="navbar__link" to="/authors" onClick={() => {
               setMenuActive(false)
             }}>
 							User Manager
 						</Link>
-					</li>
+					</li>)
+					: ""
+					}
 				</ul>
 			</>
 		);
@@ -79,6 +80,7 @@ export const NavBar = () => {
 	return (
 		<>
 			<ul className="navbar">
+			<div className="navSpace"></div>
 				<li className="">
 					<Link to="/" onClick={() => {
               setMenuActive(false)
@@ -131,6 +133,7 @@ export const NavBar = () => {
 						}}
 					/>
 				</Link>
+			<div className="navSpace"></div>
 			</ul>
 			{menuActive ? showMenu() : ""}
 		</>
