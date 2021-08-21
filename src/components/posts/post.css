@@ -78,7 +78,7 @@
 }
 
 .postPI {
-    max-height: 2rem;
+    /* max-height: 2rem; */
     border-radius: 50%;
     padding-left: 0;
     align-self: center;
@@ -86,6 +86,9 @@
     padding-bottom: 0.3rem;
     letter-spacing: 5px;
     margin-right: 10px;
+    height: 3rem;width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .postAuthorDiv {
@@ -127,7 +130,9 @@
 
 .postImage {
 	align-self: center;
-	max-height: 9rem;
+	height: 9rem;
+    width: 9rem;
+    object-fit: cover;
 }
 
 .postDetailTitle {
@@ -138,3 +143,36 @@
   max-width: 700px;
   margin: auto;
 }
+
+.myPostsHeader {
+    text-align: center;
+}
+
+.myPosts {
+    width: 50%
+}
+
+.myPostsContainer {
+    display:flex;
+    justify-content: center;
+}
+
+.flexMyPosts {
+	display: flex;
+	margin: 0 0 3em 0;
+	margin-left: auto; 
+    margin-right: auto;
+	width: 85%;
+	max-width: 50%;
+	width: 800px;
+}
+
+.myPostsButtons {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 3em 0
+}
+
+/* .plLeft {
+    width: 65%;
+} */
