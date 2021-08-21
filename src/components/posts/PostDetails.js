@@ -29,8 +29,8 @@ export const PostDetails = () => {
 			<div className="postDetailContainer">
 				<h1 className="postDetailTitle">{post.title}</h1>
 				<div className="postDetailTitle">{post.publication_date}</div>
-				<div className="postDetailTitle">
-					<img src={post.image_url}></img>
+				<div style={{textAlign: "center"}}>
+					<img style={{maxHeight: "24.6rem"}}src={post.image_url}></img>
 				</div>
 				<div className="postDetailTitle">{post.content}</div>
 				<div className="postDetailBody">

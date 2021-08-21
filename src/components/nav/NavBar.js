@@ -78,6 +78,7 @@ export const NavBar = () => {
 							className="nav-link fakeLink"
 							onClick={() => {
 								localStorage.removeItem("rare_user_id");
+								localStorage.removeItem("rare_admin");
 								history.push({ pathname: "/" });
 							}}
 						>
