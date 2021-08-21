@@ -3,8 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import "./NavBar.css";
 import Logo from "../../images/rarerLogo.png";
 import { AuthorContext } from "../authors/AuthorProvider";
-
 import logoutDoor from "../../images/logout.png";
+import closeIcon from "../../images/close.png"
 
 export const NavBar = () => {
 	const history = useHistory();
@@ -34,6 +34,7 @@ export const NavBar = () => {
 					/>
 				</Link>
           <li>{author.user?.username}</li>
+					<img onClick={()=>{setMenuActive(false)}} style={{height: "1rem", marginLeft: "auto", alignSelf: "baseline"}} src={closeIcon} alt="" />
           </div>
           <li className="menuSepLI"><div className="menuSep"></div></li>
           <li>
@@ -69,7 +70,8 @@ export const NavBar = () => {
             }}>
 							User Manager
 						</Link>
-					</li>)
+					</li>
+					 )
 					: ""
 					}
 				</ul>
@@ -139,26 +141,3 @@ export const NavBar = () => {
 		</>
 	);
 };
-
-{
-	/* <li className="navbar__item navbar__text">
-					<Link className="navbar__link" to="/myposts">
-						My Posts
-					</Link>
-				</li>
-				<li className="navbar__item navbar__text">
-					<Link className="navbar__link" to="/categories">
-						Category Manager
-					</Link>
-				</li>
-				<li className="navbar__item navbar__text">
-					<Link className="navbar__link" to="/tags">
-						Tag Manager
-					</Link>
-				</li>
-				<li className="navbar__item navbar__text">
-					<Link className="navbar__link" to="/authors">
-						User Manager
-					</Link>
-				</li> */
-}
