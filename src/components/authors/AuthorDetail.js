@@ -6,17 +6,18 @@ import "./Author.css";
 
 export const AuthorDetail = () => {
   const {getAuthorDetails, author} = useContext(AuthorContext)
-  const { getPostsByUserId, posts } = useContext(PostContext)
-
+  const { getPosts, posts } = useContext(PostContext)
+  const [authorPosts, setAuthorPosts] = useState([])
   const {authorId} = useParams()
-  // const history = useHistory()
-
-
+ 
     useEffect(() => {
-        getAuthorDetails(authorId).then(getPostsByUserId())
+        getAuthorDetails(authorId)
+        getPosts()
     }, [])
 
-    const authorTotalPosts = posts.length
+    useEffect(() => {
+        setAuthorPosts(posts.filter(post=>post.user.author.id === author.id))
+    }, [posts])
 
   return (
     <>
@@ -25,16 +26,15 @@ export const AuthorDetail = () => {
       <img src={author.profile_image_url} alt="ProfilePic" className="authorImage"/>
         {/* <h1>{author.bio}</h1> */}
         <div className="authorInfo">
-          {/* <div>Name: {author.user?.first_name} {author.user?.last_name}</div> */}
-
-          <div><strong>{author.user?.username}</strong></div>
+          <strong>{author.user?.first_name} {author.user?.last_name}</strong>
+          <div><strong>@</strong>{author.user?.username}</div>
           <div>{author.user?.email}</div>
           <div>Member Since: <br></br> {author.created_on}</div>
           <div>Profile Type: <br></br> {
               author.user?.is_staff ? "Admin": "Author"
             }
           </div>
-          <Link to={"/myposts"} className="totalPostsLink">{authorTotalPosts} Total Posts</Link>
+          <Link to={`/userPosts/${author.id}`} className="totalPostsLink">{authorPosts.length} Total Posts</Link>
         </div>
     </div>
     </div>

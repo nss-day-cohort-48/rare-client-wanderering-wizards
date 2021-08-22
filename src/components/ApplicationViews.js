@@ -18,6 +18,7 @@ import { AuthorProvider } from "./authors/AuthorProvider";
 import { AuthorList } from "./authors/AuthorList.js";
 import { AuthorDetail } from "./authors/AuthorDetail.js";
 import { CommentEditForm } from "./comments/CommentEditForm";
+import { AuthorPostList } from "./posts/AuthorPostList";
 
 export const ApplicationViews = () => {
 	return (
@@ -42,6 +43,9 @@ export const ApplicationViews = () => {
 								</Route>
 								<Route exact path="/myposts">
 									<MyPostList />
+								</Route>
+								<Route exact path="/userPosts/:authorId(\d+)">
+									<AuthorPostList />
 								</Route>
 								<Route exact path="/posts/create">
 									<PostForm />
