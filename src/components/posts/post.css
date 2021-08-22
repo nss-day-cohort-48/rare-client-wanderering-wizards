@@ -6,6 +6,7 @@
 	/* width: 85%; */
 	max-width: 80%;
 	width: 800px;
+  margin-bottom: 3rem;
 }
 
 .plContainer {
@@ -320,3 +321,4 @@
 .myPostEditButton:hover {
 	background-color: rgb(105, 105, 105);
 }
+

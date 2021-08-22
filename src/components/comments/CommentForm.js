@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { CommentContext } from "./CommentProvider";
 import { PostContext } from "../posts/PostProvider";
-
+import "../comments/CommentStyle.css";
 export const CommentForm = () => {
 	const { post, getPostsDetails } = useContext(PostContext);
 	const { createComment, deleteComment, updateComment } =
@@ -60,6 +60,7 @@ export const CommentForm = () => {
 	const renderDeleteCommentButton = (id) => {
 		return (
 			<button
+				className="myCommentEditButton"
 				onClick={() => {
 					deleteComment(id).then(() => {
 						getPostsDetails(postId);
@@ -75,6 +76,7 @@ export const CommentForm = () => {
 		// console.log(id);
 		return (
 			<button
+				className="myCommentEditButton"
 				id={id}
 				onClick={() => {
 					history.push(`/comments/edit/${id}`);
@@ -87,55 +89,47 @@ export const CommentForm = () => {
 
 	return (
 		<>
-			<button
-				onClick={(event) => {
-					history.goBack([-1]);
-					event.preventDefault();
-				}}
-			>
-				Back to post
-			</button>
-			<h1>New Comment</h1>
-
-			<form className="flex comments">
-				<fieldset>
-					<div>
-						<label htmlFor="comment">Comment:</label>
+			<form className="postFormContainer">
+				<div className="commentFormBox">
+					<fieldset className="commentFormSet">
 						<input
+							style={{ padding: "8px" }}
+							placeholder="Write Comment Here"
 							type="content"
 							id="content"
 							name="content"
 							onChange={handleControlledInputChange}
 						/>
-					</div>
-				</fieldset>
-
-				<button
-					style={{ marginBottom: "1rem", marginTop: "1rem" }}
-					disabled={isLoading}
-					onClick={(event) => {
-						setIsLoading(true);
-						event.preventDefault();
-					}}
-				>
-					Send
-				</button>
+					</fieldset>
+					<button
+						className="myCommentEditButton"
+						disabled={isLoading}
+						onClick={(event) => {
+							setIsLoading(true);
+							event.preventDefault();
+						}}
+					>
+						Send
+					</button>
+				</div>
 			</form>
 
 			{post.comments?.map((comment) => {
 				return (
 					<>
-						<div
-							style={{
-								marginTop: "3rem",
-								marginBottom: "3rem",
-							}}
-						>
-							{comment.user.first_name}
-							<br />
-							{comment.content}
-							{comment.isAuthor ? renderEditCommentButton(comment.id) : ""}
-							{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
+						<div className="comment-page-comment commentBox">
+							<div className="commentPIDiv">
+								<img
+									className="commentPI"
+									src={comment.user.author.profile_image_url}
+								/>
+								{comment.user.first_name}
+							</div>
+							<div style={{marginBottom: "1rem"}}>{comment.content}</div>
+							<div>
+								{comment.isAuthor ? renderEditCommentButton(comment.id) : ""}
+								{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
+							</div>
 						</div>
 					</>
 				);

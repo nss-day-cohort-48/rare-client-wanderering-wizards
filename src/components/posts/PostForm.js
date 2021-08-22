@@ -99,9 +99,11 @@ export const PostForm = () => {
 
 					<fieldset className="postFormSet">
 						<textarea
+							style={{ resize: "vertical" }}
 							value={post.content}
 							placeholder="Content"
 							type="content"
+							rows="8"
 							id="content"
 							name="content"
 							className="postFormField"
