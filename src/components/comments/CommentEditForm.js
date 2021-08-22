@@ -45,7 +45,7 @@ export const CommentEditForm = () => {
 		<form className="postFormContainer">
 			<div className="postFormBox">
 				<fieldset className="postFormSet">
-					
+
 					<input
             style={{padding: "8px"}}
 						type="content"

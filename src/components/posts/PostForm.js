@@ -83,12 +83,13 @@ export const PostForm = () => {
 
 	return (
 		<>
+      <h2 style={{fontStyle: "italic", maxWidth: "840px", margin: "auto", marginBottom:"1rem"}}>Tell your story...</h2>
 			<form className="postFormContainer">
 				<div className="postFormBox">
 					<fieldset className="postFormSet">
 						<input
 							value={post.title}
-							placeholder="Post Title"
+							placeholder="Title"
 							type="title"
 							id="title"
 							name="title"

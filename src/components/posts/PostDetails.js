@@ -3,6 +3,8 @@ import { PostContext } from "./PostProvider";
 import { useHistory, useParams } from "react-router-dom";
 import { CommentForm } from "../comments/CommentForm";
 
+import commentBubble from "../../images/chat.png"
+
 export const PostDetails = () => {
 	const { post, getPostsDetails } = useContext(PostContext);
 	const [menuActive, setMenuActive] = useState(false);
@@ -46,14 +48,10 @@ export const PostDetails = () => {
 				<div className="postDetailTitle" style={{ marginBottom: "2rem" }}>
 					{post.content}
 				</div>
-				<div className="postDetailBody">
-					{/* <img src={post.user.author?.profile_image_url} />{" "}
-											{post.user.first_name} {post.user.last_name} */}
-				</div>
-
-				<button
-					className="myCommentEditButton"
-					style={{ marginTop: "1rem" }}
+				
+        <div className="showCommentsButton">
+				<img src={commentBubble}
+					className="commentBubbleStyle"
 					onClick={() => {
 						if (menuActive) {
 							setMenuActive(false);
@@ -61,10 +59,12 @@ export const PostDetails = () => {
 							setMenuActive(true);
 						}
 					}}
-				>
-					View Comments
-				</button>
+				/>
+        <div style={{marginLeft: "1rem"}}>
+				{post.comments?.length}
+        </div></div>
 			</div>
+      <div className="postDetailLine"></div>
 			{menuActive ? showComments() : ""}
 		</>
 	);

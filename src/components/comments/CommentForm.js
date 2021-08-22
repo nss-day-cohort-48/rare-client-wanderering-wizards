@@ -11,6 +11,29 @@ export const CommentForm = () => {
 	const [comments, setComments] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
 
+	const [moreComments, setMoreComments] = useState(0);
+	const [nextComments, setNextComments] = useState(5);
+
+	const handleClickMoreComments = () => {
+		const moreCommentsCopy = moreComments;
+		const nextCommentsCopy = nextComments;
+
+		let commentNext = moreCommentsCopy + 5;
+		let moreCommentsNext = nextCommentsCopy + 5;
+
+		setMoreComments(commentNext);
+		setNextComments(moreCommentsNext);
+	};
+
+	const handleClickMoreCommentsReset = () => {
+
+		let moreComments = 0;
+		let nextComments = 5;
+
+		setMoreComments(moreComments);
+		setNextComments(nextComments);
+	};
+
 	const { postId } = useParams();
 	const history = useHistory();
 
@@ -48,10 +71,10 @@ export const CommentForm = () => {
 				author_id: parseInt(userId),
 				content: comments.content,
 				created_on: new Date().toISOString().slice(0, 10),
-			}).then(() => history.push(`/posts/${postId}`));
+			}).then(getPostsDetails(postId));
 		} else {
 			window.alert(
-				"Please fill in all form fields before submitting your comment."
+				"Please fill in the comment form!"
 			);
 			setIsLoading(false);
 		}
@@ -92,9 +115,12 @@ export const CommentForm = () => {
 			<form className="postFormContainer">
 				<div className="commentFormBox">
 					<fieldset className="commentFormSet">
-						<input
-							style={{ padding: "8px" }}
+						<textarea
+              required
+							style={{ padding: "8px", resize: "vertical" }}
 							placeholder="Write Comment Here"
+							cols="73"
+              rows="5"
 							type="content"
 							id="content"
 							name="content"
@@ -114,7 +140,7 @@ export const CommentForm = () => {
 				</div>
 			</form>
 
-			{post.comments?.map((comment) => {
+			{post.comments?.slice(moreComments, nextComments).map((comment) => {
 				return (
 					<>
 						<div className="comment-page-comment commentBox">
@@ -125,7 +151,7 @@ export const CommentForm = () => {
 								/>
 								{comment.user.first_name}
 							</div>
-							<div style={{marginBottom: "1rem"}}>{comment.content}</div>
+							<div style={{ marginBottom: "1rem" }}>{comment.content}</div>
 							<div>
 								{comment.isAuthor ? renderEditCommentButton(comment.id) : ""}
 								{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
@@ -134,6 +160,25 @@ export const CommentForm = () => {
 					</>
 				);
 			})}
+      {post.comments.length <= 5 ? "" : 
+			<div style={{textAlign: "center", marginBottom: "2rem"}}>
+				<div
+					className="myCommentEditButton"
+					onClick={() => {
+						handleClickMoreComments();
+					}}
+				>
+					Show More Comments
+				</div>
+				<div
+					className="myCommentEditButton"
+					onClick={() => {
+						handleClickMoreCommentsReset();
+					}}
+				>
+					Go back
+				</div>
+			</div>}
 		</>
 	);
 };

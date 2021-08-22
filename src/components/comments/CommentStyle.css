@@ -74,3 +74,16 @@
   box-shadow: -1px 9px 13px 0px #d8d8d8, inset 0px -5px 9px 0px #c3c3c3;
 }
 
+.showCommentsButton {
+  display: flex;
+  align-items: center;
+}
+
+.commentBubbleStyle {
+  height: 2rem;
+  cursor: pointer;
+}
+.commentBubbleStyle:hover {
+  height: 2.1rem;
+  width: 2.1rem;
+}
