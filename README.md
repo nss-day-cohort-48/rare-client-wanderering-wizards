@@ -1,5 +1,7 @@
 # Project Title
 
+![](src/images/rarer.png)
+
 Simple overview of use/purpose.
 
 ## Description
