@@ -78,19 +78,7 @@ export const AuthorPostList = (props) => {
 										<img className="postImage" src={post.image_url} />
 									</div>
 								</article>
-								<div className="myPostsButtons">
-									{editPostButton(post.id)}
-									<button
-										className="myPostSubmitButton"
-										onClick={() => {
-											deletePost(post.id).then(() => {
-												history.push("/myposts");
-											});
-										}}
-									>
-										Delete Post
-									</button>
-								</div>
+
 							</>
 						);
 					})}
