@@ -18,7 +18,6 @@ the user management section.
 
 * How to run the program
 * npm start
-```
 
 ## Authors
 
