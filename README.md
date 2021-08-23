@@ -22,22 +22,21 @@ the user management section.
 ## Authors
 
 Devin Garcia
-[devingarcia.com](www.devingarcia.com)
+[devingarcia.com](www.devingarcia.com) ||
 [linkedin/devinmgarcia](https://www.linkedin.com/in/devinmgarcia/)
 
 Andrew Webb
 [linkedin/andrewwebb](https://www.linkedin.com/in/andrew-webb07/)
 
 Noah Husain
-[noah-husain.com](https://noah-husain.netlify.app/)
+[noah-husain.com](https://noah-husain.netlify.app/) ||
 [linkedin/noahhusain](https://www.linkedin.com/in/noah-husain/)
 
 Dakota Lambert
-[dakotalambert.com](http://dakotalambert.com/)
+[dakotalambert.com](http://dakotalambert.com/) ||
 [linkedin/dakotalambert](https://www.linkedin.com/in/dakotashaynelambert/)
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
 * [medium.com](https://medium.com/)
 
