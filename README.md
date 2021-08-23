@@ -16,23 +16,22 @@ the user management section.
 
 ### Executing program
 
-* How to run the program
 * npm start
 
 ## Authors
 
-Devin Garcia
+<h2>Devin Garcia</h2>
 [devingarcia.com](www.devingarcia.com) ||
 [linkedin/devinmgarcia](https://www.linkedin.com/in/devinmgarcia/)
 
-Andrew Webb
+<h2>Andrew Webb</h2>
 [linkedin/andrewwebb](https://www.linkedin.com/in/andrew-webb07/)
 
-Noah Husain
+<h2>Noah Husain</h2>
 [noah-husain.com](https://noah-husain.netlify.app/) ||
 [linkedin/noahhusain](https://www.linkedin.com/in/noah-husain/)
 
-Dakota Lambert
+<h2>Dakota Lambert</h2>
 [dakotalambert.com](http://dakotalambert.com/) ||
 [linkedin/dakotalambert](https://www.linkedin.com/in/dakotashaynelambert/)
 
