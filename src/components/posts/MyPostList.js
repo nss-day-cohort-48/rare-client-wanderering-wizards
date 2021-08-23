@@ -78,7 +78,7 @@ export const MyPostList = (props) => {
 										className="myPostSubmitButton"
 										onClick={() => {
 											deletePost(post.id).then(() => {
-												history.push("/myposts");
+												getPostsByUserId()
 											});
 										}}
 									>
