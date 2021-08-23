@@ -125,7 +125,7 @@ export const PostList = (props) => {
 													{post.title}
 												</Link>
 											</strong>
-											<div>{post.content.slice(0, 50).trim()}...</div>
+											<div className="postContent">{post.content.slice(0, 50).trim()}...</div>
 											<div className="postDateTag">
 												<div className="postPubDate">
 													{post.publication_date}
@@ -166,11 +166,11 @@ export const PostList = (props) => {
 					<article className="followSection">
 					<div style={{marginBottom: "1.5rem", fontSize: ".8rem", fontWeight: "bolder"}}>WHO TO FOLLOW</div>
 					<div className="recCats">
-						{authors?.slice(1, 5).map((author) => {
+						{authors?.slice(1,).sort(()=> Math.random()-0.5).slice(1, 5).map((author) => {
 							return (
 								<div className="author">
 									<div>
-									<img className="postPI" style={{maxHeight: "3.5rem"}} src={author.profile_image_url}></img>
+									<img className="postPI" style={{height: "3rem", width: "3rem"}} src={author.profile_image_url}></img>
 									</div>
 									<div className="authorDetails">
 									<strong>{author.user.first_name} {author.user.last_name}</strong>

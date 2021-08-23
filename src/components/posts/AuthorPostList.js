@@ -1,15 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PostContext } from "./PostProvider";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import "./post.css";
 
-export const MyPostList = (props) => {
-	const { posts, getPostsByUserId, deletePost } = useContext(PostContext);
+export const AuthorPostList = (props) => {
+	const { posts, getPosts, deletePost } = useContext(PostContext);
+	const [authorPosts, setAuthorPosts] = useState([])
 	const history = useHistory();
+	const {authorId} = useParams()
+	
 
 	useEffect(() => {
-		getPostsByUserId();
+		getPosts()
 	}, []);
+	useEffect(() => {
+		setAuthorPosts(posts.filter(post=>post.user.author.id === parseInt(authorId)))
+	}, [authorId]);
 
 	const editPostButton = (post_id) => {
 		return (
@@ -34,7 +40,7 @@ export const MyPostList = (props) => {
 		<>
 			<div>
 				<div>
-					{posts.map((post) => {
+					{authorPosts.map((post) => {
 						return (
 							<>
 								<article className="flexMyPosts">
