@@ -14,19 +14,30 @@ export const AuthorList = () => {
   return (
     <>
 			<div>
-				<h1>Authors</h1>
 				{alphabeticalAuthors.map((author) => {
 					return (
 						<>
-							<article className="flex">
-								<Link to={`/authors/${author.id}`}>{author.user.username}</Link>
-								<div>
-									Author: {author.user.first_name} {author.user.last_name}
-								</div>
-                <img src={author.profile_image_url}/>
-								<div>Username: {author.user.username}</div>
-								<div>Admin Status: {author.user.is_staff ? "Admin" : "Author"}</div>
-							</article>
+							<div className="authorParent">
+    <div className="flexAuthor">
+      <img src={author.profile_image_url} alt="ProfilePic" className="authorImage"/>
+        {/* <h1>{author.bio}</h1> */}
+        <div className="authorInfo">
+          {/* <div>Name: {author.user?.first_name} {author.user?.last_name}</div> */}
+
+          <div><strong>{author.user?.username}</strong></div>
+          <div>{author.user?.email}</div>
+          <div>Member Since: <br></br> {author.created_on}</div>
+          <div>Profile Type: <br></br> {
+              author.user?.is_staff ? "Admin": "Author"
+            }
+          </div>
+          {/* <Link to={"/myposts"} className="totalPostsLink">{authorTotalPosts} Total Posts</Link> */}
+        </div>
+    </div>
+    </div>
+    <div className="flexAuthorBio">
+    <div>{author.bio}</div>
+    </div>
 						</>
 					);
 				})}
@@ -34,3 +45,13 @@ export const AuthorList = () => {
       </>
   )
 }
+
+// <article className="flex">
+// 								<Link to={`/authors/${author.id}`}>{author.user.username}</Link>
+// 								<div>
+// 									Author: {author.user.first_name} {author.user.last_name}
+// 								</div>
+//                 <img src={author.profile_image_url}/>
+// 								<div>Username: {author.user.username}</div>
+// 								<div>Admin Status: {author.user.is_staff ? "Admin" : "Author"}</div>
+// 							</article>
