@@ -38,6 +38,5 @@ Dakota Lambert
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
 * [medium.com](https://medium.com/)
 
