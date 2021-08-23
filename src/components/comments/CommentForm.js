@@ -8,7 +8,7 @@ export const CommentForm = () => {
 	const { createComment, deleteComment, updateComment } =
 		useContext(CommentContext);
 
-	const [comments, setComments] = useState({});
+	const [comments, setComments] = useState({content: ""});
 	const [isLoading, setIsLoading] = useState(false);
 
 	const [moreComments, setMoreComments] = useState(0);
@@ -71,7 +71,10 @@ export const CommentForm = () => {
 				author_id: parseInt(userId),
 				content: comments.content,
 				created_on: new Date().toISOString().slice(0, 10),
-			}).then(getPostsDetails(postId));
+			}).then(() => {
+        getPostsDetails(postId)
+        setComments({content: ""})
+      });
 		} else {
 			window.alert(
 				"Please fill in the comment form!"
@@ -122,6 +125,7 @@ export const CommentForm = () => {
 							cols="73"
               rows="5"
 							type="content"
+              value={comments.content}
 							id="content"
 							name="content"
 							onChange={handleControlledInputChange}
@@ -132,7 +136,8 @@ export const CommentForm = () => {
 						disabled={isLoading}
 						onClick={(event) => {
 							setIsLoading(true);
-							event.preventDefault();
+							event.preventDefault()
+              ;
 						}}
 					>
 						Send
