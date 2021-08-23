@@ -1,5 +1,4 @@
 .flex {
-<<<<<<< HEAD
 	display: flex;
 	margin: 5px;
 	margin-left: auto;
@@ -8,16 +7,6 @@
 	max-width: 80%;
 	width: 800px;
   margin-bottom: 3rem;
-=======
-    display: flex;
-    /* margin: 5px; */
-    margin-left: auto;
-    /* margin-right: auto; */
-    /* width: 85%; */
-    max-width: 80%;
-    width: 800px;
-    margin-bottom: 2rem;
->>>>>>> main
 }
 
 .plContainer {
@@ -272,11 +261,7 @@
 }
 
 .postUpload {
-<<<<<<< HEAD
   max-width: 300px;
-=======
-    max-width: 400px;
->>>>>>> main
 }
 
 .postTags {
@@ -361,7 +346,6 @@
 }
 
 .myPostEditButton:hover {
-<<<<<<< HEAD
 	background-color: rgb(105, 105, 105);
 }
 
@@ -370,7 +354,4 @@
     max-width: 900px;
     margin: auto;
     margin-top: 3.5rem;
-=======
-    background-color: rgb(105, 105, 105);
->>>>>>> main
 }
