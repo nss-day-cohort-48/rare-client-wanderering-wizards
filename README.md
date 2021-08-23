@@ -1,6 +1,6 @@
 # Project Title
 
-![](src/images/rarer.png)
+![](src/images/rarer.gif)
 
 Simple overview of use/purpose.
 
