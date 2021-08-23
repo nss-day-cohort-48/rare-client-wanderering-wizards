@@ -21,27 +21,16 @@ the user management section.
 ## Authors
 
 <h4>Devin Garcia</h4>
-<a href="www.devingarcia.com">devingarcia.com</a>
+<a href="https://www.devingarcia.com/">devingarcia.com</a>
 <a href="https://www.linkedin.com/in/devinmgarcia/">linkedin/devinmgarcia</a>
 <h4>Andrew Webb</h4>
 <a href="https://www.linkedin.com/in/andrew-webb07/">linkedin/devinmgarcia</a>
 <h4>Noah Husain</h4>
-<a href="www.devingarcia.com">devingarcia.com</a>
-<a href="https://www.linkedin.com/in/devinmgarcia/">linkedin/devinmgarcia</a>
+<a href="https://noah-husain.netlify.app/">noah-husain.com</a>
+<a href="https://www.linkedin.com/in/noah-husain/">linkedin/noahhusain</a>
 <h4>Dakota Lambert</h4>
-<a href="www.devingarcia.com">devingarcia.com</a>
-<a href="https://www.linkedin.com/in/devinmgarcia/">linkedin/devinmgarcia</a>
-
-<h2>Andrew Webb</h2>
-[linkedin/andrewwebb](https://www.linkedin.com/in/andrew-webb07/)
-
-<h2>Noah Husain</h2>
-[noah-husain.com](https://noah-husain.netlify.app/)
-[linkedin/noahhusain](https://www.linkedin.com/in/noah-husain/)
-
-<h2>Dakota Lambert</h2>
-[dakotalambert.com](http://dakotalambert.com/)
-[linkedin/dakotalambert](https://www.linkedin.com/in/dakotashaynelambert/)
+<a href="https://www.dakotalambert.com">dakotalambert.com</a>
+<a href="https://www.linkedin.com/in/dakotashaynelambert/">linkedin/dakotalambert</a>
 
 ## Acknowledgments
 
