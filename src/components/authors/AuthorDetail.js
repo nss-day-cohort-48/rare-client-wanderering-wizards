@@ -34,7 +34,7 @@ export const AuthorDetail = () => {
               author.user?.is_staff ? "Admin": "Author"
             }
           </div>
-          <Link to={"/myposts"} className="totalPostsLink">{authorTotalPosts} Total Posts</Link>
+          {/* <Link to={"/myposts"} className="totalPostsLink">{authorTotalPosts} Total Posts</Link> */}
         </div>
     </div>
     </div>
