@@ -1,0 +1,89 @@
+.myCommentEditButton {
+	clear: both;
+	background-color: #aaa;
+	border: 0 none;
+	border-radius: 4px;
+	transition: all 0.23s ease-in-out 0s;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: normal;
+	height: 32px;
+	line-height: 32px;
+	margin-right: 2rem;
+	padding: 0 22px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
+	white-space: nowrap;
+	width: auto;
+}
+.myCommentEditButton:hover {
+	background-color: rgb(105, 105, 105);
+}
+.commentBox {
+	margin-bottom: 2rem;
+	margin: auto;
+	max-width: 600px;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.commentPI {
+	padding-left: 0;
+	align-self: center;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
+	letter-spacing: 5px;
+	/* margin-left: auto; */
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.commentPIDiv {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.commentFormSet {
+  clear: left;
+	padding-bottom: 0.5rem;
+	min-height: 50px;
+	/* margin: 0 2rem 0 2rem; */
+	padding-inline-start: 0;
+  display: block;
+}
+
+.commentFormBox {
+	border-width: 3px;
+	max-width: 700px;
+	margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.comment-page-comment {
+  background: rgba(242, 242, 242, 1);
+  padding: 2rem 3rem;
+  /* margin: 2rem; */
+  border-radius: 20px;
+  box-shadow: -1px 9px 13px 0px #d8d8d8, inset 0px -5px 9px 0px #c3c3c3;
+}
+
+.showCommentsButton {
+  display: flex;
+  align-items: center;
+}
+
+.commentBubbleStyle {
+  height: 2rem;
+  cursor: pointer;
+}
+.commentBubbleStyle:hover {
+  height: 2.1rem;
+  width: 2.1rem;
+}

@@ -1,4 +1,14 @@
 .flex {
+<<<<<<< HEAD
+	display: flex;
+	margin: 5px;
+	margin-left: auto;
+	/* margin-right: auto; */
+	/* width: 85%; */
+	max-width: 80%;
+	width: 800px;
+  margin-bottom: 3rem;
+=======
     display: flex;
     /* margin: 5px; */
     margin-left: auto;
@@ -7,6 +17,7 @@
     max-width: 80%;
     width: 800px;
     margin-bottom: 2rem;
+>>>>>>> main
 }
 
 .plContainer {
@@ -178,19 +189,19 @@
 }
 
 .flexMyPosts {
-    display: flex;
-    margin: 0 0 3em 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
-    max-width: 50%;
-    width: 800px;
+	display: flex;
+	margin: 0 0 2em 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+	max-width: 50%;
+	width: 800px;
 }
 
 .myPostsButtons {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 3em 0;
+	display: flex;
+	justify-content: center;
+	margin: 0 0 1em 0;
 }
 
 .postFormContainer {
@@ -261,7 +272,11 @@
 }
 
 .postUpload {
+<<<<<<< HEAD
+  max-width: 300px;
+=======
     max-width: 400px;
+>>>>>>> main
 }
 
 .postTags {
@@ -346,5 +361,16 @@
 }
 
 .myPostEditButton:hover {
+<<<<<<< HEAD
+	background-color: rgb(105, 105, 105);
+}
+
+.postDetailLine {
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+    max-width: 900px;
+    margin: auto;
+    margin-top: 3.5rem;
+=======
     background-color: rgb(105, 105, 105);
+>>>>>>> main
 }

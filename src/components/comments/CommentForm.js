@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { CommentContext } from "./CommentProvider";
 import { PostContext } from "../posts/PostProvider";
-
+import "../comments/CommentStyle.css";
 export const CommentForm = () => {
 	const { post, getPostsDetails } = useContext(PostContext);
 	const { createComment, deleteComment, updateComment } =
@@ -10,6 +10,29 @@ export const CommentForm = () => {
 
 	const [comments, setComments] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
+
+	const [moreComments, setMoreComments] = useState(0);
+	const [nextComments, setNextComments] = useState(5);
+
+	const handleClickMoreComments = () => {
+		const moreCommentsCopy = moreComments;
+		const nextCommentsCopy = nextComments;
+
+		let commentNext = moreCommentsCopy + 5;
+		let moreCommentsNext = nextCommentsCopy + 5;
+
+		setMoreComments(commentNext);
+		setNextComments(moreCommentsNext);
+	};
+
+	const handleClickMoreCommentsReset = () => {
+
+		let moreComments = 0;
+		let nextComments = 5;
+
+		setMoreComments(moreComments);
+		setNextComments(nextComments);
+	};
 
 	const { postId } = useParams();
 	const history = useHistory();
@@ -48,10 +71,10 @@ export const CommentForm = () => {
 				author_id: parseInt(userId),
 				content: comments.content,
 				created_on: new Date().toISOString().slice(0, 10),
-			}).then(() => history.push(`/posts/${postId}`));
+			}).then(getPostsDetails(postId));
 		} else {
 			window.alert(
-				"Please fill in all form fields before submitting your comment."
+				"Please fill in the comment form!"
 			);
 			setIsLoading(false);
 		}
@@ -60,6 +83,7 @@ export const CommentForm = () => {
 	const renderDeleteCommentButton = (id) => {
 		return (
 			<button
+				className="myCommentEditButton"
 				onClick={() => {
 					deleteComment(id).then(() => {
 						getPostsDetails(postId);
@@ -75,6 +99,7 @@ export const CommentForm = () => {
 		// console.log(id);
 		return (
 			<button
+				className="myCommentEditButton"
 				id={id}
 				onClick={() => {
 					history.push(`/comments/edit/${id}`);
@@ -87,59 +112,73 @@ export const CommentForm = () => {
 
 	return (
 		<>
-			<button
-				onClick={(event) => {
-					history.goBack([-1]);
-					event.preventDefault();
-				}}
-			>
-				Back to post
-			</button>
-			<h1>New Comment</h1>
-
-			<form className="flex comments">
-				<fieldset>
-					<div>
-						<label htmlFor="comment">Comment:</label>
-						<input
+			<form className="postFormContainer">
+				<div className="commentFormBox">
+					<fieldset className="commentFormSet">
+						<textarea
+              required
+							style={{ padding: "8px", resize: "vertical" }}
+							placeholder="Write Comment Here"
+							cols="73"
+              rows="5"
 							type="content"
 							id="content"
 							name="content"
 							onChange={handleControlledInputChange}
 						/>
-					</div>
-				</fieldset>
-
-				<button
-					style={{ marginBottom: "1rem", marginTop: "1rem" }}
-					disabled={isLoading}
-					onClick={(event) => {
-						setIsLoading(true);
-						event.preventDefault();
-					}}
-				>
-					Send
-				</button>
+					</fieldset>
+					<button
+						className="myCommentEditButton"
+						disabled={isLoading}
+						onClick={(event) => {
+							setIsLoading(true);
+							event.preventDefault();
+						}}
+					>
+						Send
+					</button>
+				</div>
 			</form>
 
-			{post.comments?.map((comment) => {
+			{post.comments?.slice(moreComments, nextComments).map((comment) => {
 				return (
 					<>
-						<div
-							style={{
-								marginTop: "3rem",
-								marginBottom: "3rem",
-							}}
-						>
-							{comment.user.first_name}
-							<br />
-							{comment.content}
-							{comment.isAuthor ? renderEditCommentButton(comment.id) : ""}
-							{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
+						<div className="comment-page-comment commentBox">
+							<div className="commentPIDiv">
+								<img
+									className="commentPI"
+									src={comment.user.author.profile_image_url}
+								/>
+								{comment.user.first_name}
+							</div>
+							<div style={{ marginBottom: "1rem" }}>{comment.content}</div>
+							<div>
+								{comment.isAuthor ? renderEditCommentButton(comment.id) : ""}
+								{comment.isAuthor ? renderDeleteCommentButton(comment.id) : ""}
+							</div>
 						</div>
 					</>
 				);
 			})}
+      {post.comments.length <= 5 ? "" : 
+			<div style={{textAlign: "center", marginBottom: "2rem"}}>
+				<div
+					className="myCommentEditButton"
+					onClick={() => {
+						handleClickMoreComments();
+					}}
+				>
+					Show More Comments
+				</div>
+				<div
+					className="myCommentEditButton"
+					onClick={() => {
+						handleClickMoreCommentsReset();
+					}}
+				>
+					Go back
+				</div>
+			</div>}
 		</>
 	);
 };

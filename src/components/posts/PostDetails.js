@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PostContext } from "./PostProvider";
 import { useHistory, useParams } from "react-router-dom";
-import { CommentContext } from "../comments/CommentProvider";
+import { CommentForm } from "../comments/CommentForm";
+
+import commentBubble from "../../images/chat.png"
 
 export const PostDetails = () => {
 	const { post, getPostsDetails } = useContext(PostContext);
+	const [menuActive, setMenuActive] = useState(false);
 
 	const userId = parseInt(localStorage.getItem("rare_user_id"));
 	// console.log(userId)
@@ -16,45 +19,53 @@ export const PostDetails = () => {
 		getPostsDetails(postId);
 	}, []);
 
+	const showComments = () => {
+		return <CommentForm />;
+	};
+
 	return (
 		<>
-        <div style={{textAlign: "center", marginBottom: "3rem"}}>
-				<button 
-					onClick={() => {
-						history.goBack([-1]);
-					}}
-				>
-					Back to All Posts
-				</button></div>
 			<div className="postDetailContainer">
 				<h1 className="postDetailTitle">{post.title}</h1>
-				<div className="postDetailTitle">{post.publication_date}</div>
-				<div style={{textAlign: "center"}}>
-					<img style={{maxHeight: "24.6rem"}}src={post.image_url}></img>
-				</div>
-				<div className="postDetailTitle">{post.content}</div>
-				<div className="postDetailBody">
-					{/* <img src={post.user.author?.profile_image_url} />{" "}
-											{post.user.first_name} {post.user.last_name} */}
-				</div>
+				<div style={{ marginBottom: "2rem" }}>
+					<div className="postDetailTitle"> {post.category?.label}</div>
 
-				<div>Category: {post.category?.label}</div>
-				{post.tags?.map((tag) => {
-					return (
-						<>
-							<div>Tag: {tag.label}</div>
-						</>
-					);
-				})}
-
-				<button
+					{post.tags?.map((tag) => {
+						return (
+							<>
+								<div className="postDetailTitle">{tag.label}</div>
+							</>
+						);
+					})}
+					<div className="postDetailTitle">{post.publication_date}</div>
+				</div>
+				<div style={{ textAlign: "center" }}>
+					<img
+						style={{ maxHeight: "24.6rem", marginBottom: "2rem" }}
+						src={post.image_url}
+					></img>
+				</div>
+				<div className="postDetailTitle" style={{ marginBottom: "2rem" }}>
+					{post.content}
+				</div>
+				
+        <div className="showCommentsButton">
+				<img src={commentBubble}
+					className="commentBubbleStyle"
 					onClick={() => {
-						history.push(`/posts/comments/${postId}`);
+						if (menuActive) {
+							setMenuActive(false);
+						} else {
+							setMenuActive(true);
+						}
 					}}
-				>
-					View Comments
-				</button>
+				/>
+        <div style={{marginLeft: "1rem"}}>
+				{post.comments?.length}
+        </div></div>
 			</div>
+      <div className="postDetailLine"></div>
+			{menuActive ? showComments() : ""}
 		</>
 	);
 };
