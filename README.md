@@ -29,7 +29,7 @@ the user management section.
 <a href="https://noah-husain.netlify.app/">noah-husain.com</a><br>
 <a href="https://www.linkedin.com/in/noah-husain/">Linkedin</a>
 <h4>Dakota Lambert</h4>
-<a href="https://www.dakotalambert.com/portfolio">dakotalambert.com</a><br>
+<a href="www.dakotalambert.com/portfolio">dakotalambert.com</a><br>
 <a href="https://www.linkedin.com/in/dakotashaynelambert/">Linkedin</a>
 
 ## Acknowledgments
